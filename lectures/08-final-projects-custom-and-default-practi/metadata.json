@@ -1,0 +1,25 @@
+{
+  "number": 8,
+  "title": "Final Projects: Custom and Default; Practical Tips",
+  "date": "Tue Jan 28",
+  "week": 4,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture07-final-project.pdf",
+      "filename": "cs224n-2025-lecture07-final-project.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Practical Methodology",
+      "url": "https://www.deeplearningbook.org/contents/guidelines.html",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://www.deeplearningbook.org/contents/guidelines.html",
+      "title": "Practical Methodology"
+    }
+  ]
+}

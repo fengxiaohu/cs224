@@ -1,0 +1,65 @@
+{
+  "number": 15,
+  "title": "Guest Lecture: Model Analysis and Interpretability (",
+  "date": "Tue Mar 4",
+  "week": 9,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-guest-lecture-interpretability.pdf",
+      "filename": "cs224n-2025-guest-lecture-interpretability.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Adversarial Examples for Evaluating Reading Comprehension Systems",
+      "url": "https://aclanthology.org/D17-1215/",
+      "section": "suggested"
+    },
+    {
+      "title": "BERT Rediscovers the Classical NLP Pipeline",
+      "url": "https://aclanthology.org/P19-1452/",
+      "section": "suggested"
+    },
+    {
+      "title": "Axiomatic Attribution for Deep Networks",
+      "url": "https://proceedings.mlr.press/v70/sundararajan17a/sundararajan17a.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Investigating Gender Bias in Language Models Using Causal Mediation Analysis",
+      "url": "https://proceedings.neurips.cc/paper/2020/file/92650b2e92217715fe312e6fa7b90d82-Paper.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Faithful, Interpretable Model Explanations via Causal Abstraction",
+      "url": "https://ai.stanford.edu/blog/causal-abstraction/",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://explanare.github.io/",
+      "title": "Jing Huang"
+    },
+    {
+      "url": "https://aclanthology.org/D17-1215/",
+      "title": "Adversarial Examples for Evaluating Reading Comprehension Systems"
+    },
+    {
+      "url": "https://aclanthology.org/P19-1452/",
+      "title": "BERT Rediscovers the Classical NLP Pipeline"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v70/sundararajan17a/sundararajan17a.pdf",
+      "title": "Axiomatic Attribution for Deep Networks"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper/2020/file/92650b2e92217715fe312e6fa7b90d82-Paper.pdf",
+      "title": "Investigating Gender Bias in Language Models Using Causal Mediation Analysis"
+    },
+    {
+      "url": "https://ai.stanford.edu/blog/causal-abstraction/",
+      "title": "Faithful, Interpretable Model Explanations via Causal Abstraction"
+    }
+  ]
+}

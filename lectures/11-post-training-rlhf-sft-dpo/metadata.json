@@ -1,0 +1,61 @@
+{
+  "number": 11,
+  "title": "Post-training (RLHF, SFT, DPO)",
+  "date": "Thu Feb 6",
+  "week": 5,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture10-instruction-tunining-rlhf.pdf",
+      "filename": "cs224n-2025-lecture10-instruction-tunining-rlhf.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Aligning language models to follow instructions",
+      "url": "https://openai.com/research/instruction-following",
+      "section": "suggested"
+    },
+    {
+      "title": "Scaling Instruction-Finetuned Language Models",
+      "url": "https://arxiv.org/abs/2210.11416",
+      "section": "suggested"
+    },
+    {
+      "title": "AlpacaFarm: A Simulation Framework for Methods that Learn from Human Feedback",
+      "url": "https://arxiv.org/abs/2305.14387",
+      "section": "suggested"
+    },
+    {
+      "title": "How Far Can Camels Go? Exploring the State of Instruction Tuning on Open Resources",
+      "url": "https://arxiv.org/abs/2306.04751",
+      "section": "suggested"
+    },
+    {
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://openai.com/research/instruction-following",
+      "title": "Aligning language models to follow instructions"
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.11416",
+      "title": "Scaling Instruction-Finetuned Language Models"
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.14387",
+      "title": "AlpacaFarm: A Simulation Framework for Methods that Learn from Human Feedback"
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.04751",
+      "title": "How Far Can Camels Go? Exploring the State of Instruction Tuning on Open Resources"
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.18290",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+    }
+  ]
+}

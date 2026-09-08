@@ -1,0 +1,78 @@
+{
+  "number": 2,
+  "title": "Word Vectors and Language Models",
+  "date": "Thu Jan 9",
+  "week": 1,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture02-wordvecs2.pdf",
+      "filename": "cs224n-2025-lecture02-wordvecs2.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-2019-notes02-wordvecs2.pdf",
+      "filename": "cs224n-2019-notes02-wordvecs2.pdf"
+    },
+    "code": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/materials/gensim_2024.zip",
+      "filename": "gensim_2024.zip"
+    }
+  },
+  "readings": [
+    {
+      "title": "GloVe: Global Vectors for Word Representation",
+      "url": "http://nlp.stanford.edu/pubs/glove.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Improving Distributional Similarity with Lessons Learned from Word Embeddings",
+      "url": "http://www.aclweb.org/anthology/Q15-1016",
+      "section": "suggested"
+    },
+    {
+      "title": "Evaluation methods for unsupervised word embeddings",
+      "url": "http://www.aclweb.org/anthology/D15-1036",
+      "section": "suggested"
+    },
+    {
+      "title": "A Latent Variable Model Approach to PMI-based Word Embeddings",
+      "url": "http://aclweb.org/anthology/Q16-1028",
+      "section": "additional"
+    },
+    {
+      "title": "Linear Algebraic Structure of Word Senses, with Applications to Polysemy",
+      "url": "https://transacl.org/ojs/index.php/tacl/article/viewFile/1346/320",
+      "section": "additional"
+    },
+    {
+      "title": "On the Dimensionality of Word Embedding",
+      "url": "https://papers.nips.cc/paper/7368-on-the-dimensionality-of-word-embedding.pdf",
+      "section": "additional"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "http://nlp.stanford.edu/pubs/glove.pdf",
+      "title": "GloVe: Global Vectors for Word Representation"
+    },
+    {
+      "url": "http://www.aclweb.org/anthology/Q15-1016",
+      "title": "Improving Distributional Similarity with Lessons Learned from Word Embeddings"
+    },
+    {
+      "url": "http://www.aclweb.org/anthology/D15-1036",
+      "title": "Evaluation methods for unsupervised word embeddings"
+    },
+    {
+      "url": "http://aclweb.org/anthology/Q16-1028",
+      "title": "A Latent Variable Model Approach to PMI-based Word Embeddings"
+    },
+    {
+      "url": "https://transacl.org/ojs/index.php/tacl/article/viewFile/1346/320",
+      "title": "Linear Algebraic Structure of Word Senses, with Applications to Polysemy"
+    },
+    {
+      "url": "https://papers.nips.cc/paper/7368-on-the-dimensionality-of-word-embedding.pdf",
+      "title": "On the Dimensionality of Word Embedding"
+    }
+  ]
+}

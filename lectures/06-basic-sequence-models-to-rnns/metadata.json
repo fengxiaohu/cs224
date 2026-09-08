@@ -1,0 +1,56 @@
+{
+  "number": 6,
+  "title": "Basic Sequence Models to RNNs",
+  "date": "Tue Jan 21",
+  "week": 3,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture05-rnnlm.pdf",
+      "filename": "cs224n-2025-lecture05-rnnlm.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-2019-notes05-LM_RNN.pdf",
+      "filename": "cs224n-2019-notes05-LM_RNN.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "N-gram Language Models",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "The Unreasonable Effectiveness of Recurrent Neural Networks",
+      "url": "http://karpathy.github.io/2015/05/21/rnn-effectiveness/",
+      "section": "suggested"
+    },
+    {
+      "title": "Sequence Modeling: Recurrent and Recursive Neural Nets",
+      "url": "http://www.deeplearningbook.org/contents/rnn.html",
+      "section": "suggested"
+    },
+    {
+      "title": "On Chomsky and the Two Cultures of Statistical Learning",
+      "url": "http://norvig.com/chomsky.html",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://web.stanford.edu/~jurafsky/slp3/3.pdf",
+      "title": "N-gram Language Models"
+    },
+    {
+      "url": "http://karpathy.github.io/2015/05/21/rnn-effectiveness/",
+      "title": "The Unreasonable Effectiveness of Recurrent Neural Networks"
+    },
+    {
+      "url": "http://www.deeplearningbook.org/contents/rnn.html",
+      "title": "Sequence Modeling: Recurrent and Recursive Neural Nets"
+    },
+    {
+      "url": "http://norvig.com/chomsky.html",
+      "title": "On Chomsky and the Two Cultures of Statistical Learning"
+    }
+  ]
+}

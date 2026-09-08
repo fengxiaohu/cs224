@@ -1,0 +1,84 @@
+{
+  "number": 4,
+  "title": "Backpropagation and Neural Network Basics",
+  "date": "Tue Jan 14",
+  "week": 2,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture03-neuralnets.pdf",
+      "filename": "cs224n-2025-lecture03-neuralnets.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-2019-notes03-neuralnets.pdf",
+      "filename": "cs224n-2019-notes03-neuralnets.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "matrix calculus notes",
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/gradient-notes.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Review of differential calculus",
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/review-differential-calculus.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "CS231n notes on network architectures",
+      "url": "http://cs231n.github.io/neural-networks-1/",
+      "section": "suggested"
+    },
+    {
+      "title": "CS231n notes on backprop",
+      "url": "http://cs231n.github.io/optimization-2/",
+      "section": "suggested"
+    },
+    {
+      "title": "Derivatives, Backpropagation, and Vectorization",
+      "url": "http://cs231n.stanford.edu/handouts/derivatives.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Learning Representations by Backpropagating Errors",
+      "url": "http://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Yes you should understand backprop",
+      "url": "https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b",
+      "section": "additional"
+    },
+    {
+      "title": "Natural Language Processing (Almost) from Scratch",
+      "url": "http://www.jmlr.org/papers/volume12/collobert11a/collobert11a.pdf",
+      "section": "additional"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "http://cs231n.github.io/neural-networks-1/",
+      "title": "CS231n notes on network architectures"
+    },
+    {
+      "url": "http://cs231n.github.io/optimization-2/",
+      "title": "CS231n notes on backprop"
+    },
+    {
+      "url": "http://cs231n.stanford.edu/handouts/derivatives.pdf",
+      "title": "Derivatives, Backpropagation, and Vectorization"
+    },
+    {
+      "url": "http://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf",
+      "title": "Learning Representations by Backpropagating Errors"
+    },
+    {
+      "url": "https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b",
+      "title": "Yes you should understand backprop"
+    },
+    {
+      "url": "http://www.jmlr.org/papers/volume12/collobert11a/collobert11a.pdf",
+      "title": "Natural Language Processing (Almost) from Scratch"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "number": 1,
+  "title": "Word Vectors",
+  "date": "Tue Jan 7",
+  "week": 1,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture01-wordvecs1.pdf",
+      "filename": "cs224n-2025-lecture01-wordvecs1.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n_winter2023_lecture1_notes_draft.pdf",
+      "filename": "cs224n_winter2023_lecture1_notes_draft.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Efficient Estimation of Word Representations in Vector Space",
+      "url": "http://arxiv.org/pdf/1301.3781.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Distributed Representations of Words and Phrases and their Compositionality",
+      "url": "http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "http://arxiv.org/pdf/1301.3781.pdf",
+      "title": "Efficient Estimation of Word Representations in Vector Space"
+    },
+    {
+      "url": "http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf",
+      "title": "Distributed Representations of Words and Phrases and their Compositionality"
+    }
+  ]
+}

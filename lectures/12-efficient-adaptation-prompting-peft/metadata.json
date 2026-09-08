@@ -1,0 +1,61 @@
+{
+  "number": 12,
+  "title": "Efficient Adaptation (Prompting + PEFT)",
+  "date": "Tue Feb 11",
+  "week": 6,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture11-adapatation.pdf",
+      "filename": "cs224n-2025-lecture11-adapatation.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Language Models are Few-Shot Learners",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "section": "suggested"
+    },
+    {
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "url": "https://arxiv.org/abs/2201.11903",
+      "section": "suggested"
+    },
+    {
+      "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks",
+      "url": "https://arxiv.org/abs/1803.03635",
+      "section": "suggested"
+    },
+    {
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "section": "suggested"
+    },
+    {
+      "title": "Parameter-Efficient Transfer Learning for NLP",
+      "url": "https://arxiv.org/abs/1902.00751",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://arxiv.org/abs/2005.14165",
+      "title": "Language Models are Few-Shot Learners"
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.11903",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"
+    },
+    {
+      "url": "https://arxiv.org/abs/1803.03635",
+      "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks"
+    },
+    {
+      "url": "https://arxiv.org/abs/2106.09685",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+    },
+    {
+      "url": "https://arxiv.org/abs/1902.00751",
+      "title": "Parameter-Efficient Transfer Learning for NLP"
+    }
+  ]
+}

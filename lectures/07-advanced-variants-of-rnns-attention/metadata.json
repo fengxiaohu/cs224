@@ -1,0 +1,56 @@
+{
+  "number": 7,
+  "title": "Advanced Variants of RNNs, Attention",
+  "date": "Thu Jan 23",
+  "week": 3,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture06-fancy-rnn.pdf",
+      "filename": "cs224n-2025-lecture06-fancy-rnn.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-2019-notes05-LM_RNN.pdf",
+      "filename": "cs224n-2019-notes05-LM_RNN.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Learning long-term dependencies with gradient descent is difficult",
+      "url": "https://ieeexplore.ieee.org/document/279181",
+      "section": "suggested"
+    },
+    {
+      "title": "On the difficulty of training Recurrent Neural Networks",
+      "url": "https://arxiv.org/pdf/1211.5063.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Vanishing Gradients Jupyter Notebook",
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1174/lectures/vanishing_grad_example.html",
+      "section": "suggested"
+    },
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762.pdf",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://ieeexplore.ieee.org/document/279181",
+      "title": "Learning long-term dependencies with gradient descent is difficult"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1211.5063.pdf",
+      "title": "On the difficulty of training Recurrent Neural Networks"
+    },
+    {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1174/lectures/vanishing_grad_example.html",
+      "title": "Vanishing Gradients Jupyter Notebook"
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.03762.pdf",
+      "title": "Attention Is All You Need"
+    }
+  ]
+}

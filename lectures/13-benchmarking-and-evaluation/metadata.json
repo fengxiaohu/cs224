@@ -1,0 +1,52 @@
+{
+  "number": 13,
+  "title": "Benchmarking and Evaluation",
+  "date": "Thu Feb 13",
+  "week": 6,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture12-evaluation-final.pdf",
+      "filename": "cs224n-2025-lecture12-evaluation-final.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Challenges and Opportunities in NLP Benchmarking",
+      "url": "https://www.ruder.io/nlp-benchmarking/",
+      "section": "suggested"
+    },
+    {
+      "title": "Measuring Massive Multitask Language Understanding",
+      "url": "https://arxiv.org/abs/2009.03300",
+      "section": "suggested"
+    },
+    {
+      "title": "Holistic Evaluation of Language Models",
+      "url": "https://arxiv.org/abs/2211.09110",
+      "section": "suggested"
+    },
+    {
+      "title": "AlpacaEval",
+      "url": "https://tatsu-lab.github.io/alpaca_eval/",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://www.ruder.io/nlp-benchmarking/",
+      "title": "Challenges and Opportunities in NLP Benchmarking"
+    },
+    {
+      "url": "https://arxiv.org/abs/2009.03300",
+      "title": "Measuring Massive Multitask Language Understanding"
+    },
+    {
+      "url": "https://arxiv.org/abs/2211.09110",
+      "title": "Holistic Evaluation of Language Models"
+    },
+    {
+      "url": "https://tatsu-lab.github.io/alpaca_eval/",
+      "title": "AlpacaEval"
+    }
+  ]
+}

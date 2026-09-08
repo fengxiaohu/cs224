@@ -1,0 +1,56 @@
+{
+  "number": 10,
+  "title": "Pretraining",
+  "date": "Tue Feb 4",
+  "week": 5,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture09-pretraining.pdf",
+      "filename": "cs224n-2025-lecture09-pretraining.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://arxiv.org/pdf/1810.04805.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Contextual Word Representations: A Contextual Introduction",
+      "url": "https://arxiv.org/abs/1902.06006.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "The Illustrated BERT, ELMo, and co.",
+      "url": "http://jalammar.github.io/illustrated-bert/",
+      "section": "suggested"
+    },
+    {
+      "title": "Jurafsky and Martin Chapter 11 (Masked Language Models)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/11.pdf",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://arxiv.org/pdf/1810.04805.pdf",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+    },
+    {
+      "url": "https://arxiv.org/abs/1902.06006.pdf",
+      "title": "Contextual Word Representations: A Contextual Introduction"
+    },
+    {
+      "url": "http://jalammar.github.io/illustrated-bert/",
+      "title": "The Illustrated BERT, ELMo, and co."
+    },
+    {
+      "url": "https://web.stanford.edu/~jurafsky/slp3/11.pdf",
+      "title": "Jurafsky and Martin Chapter 11 (Masked Language Models)"
+    },
+    {
+      "url": "https://colab.research.google.com/drive/1vp_6RYYqMhjVIzt2MRhuWnBBmz4BJ30j?usp=sharing",
+      "title": "colab run script"
+    }
+  ]
+}

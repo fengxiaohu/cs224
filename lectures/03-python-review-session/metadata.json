@@ -1,0 +1,19 @@
+{
+  "number": 3,
+  "title": "Python Review Session",
+  "date": "Fri Jan 10",
+  "week": 1,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/2024 CS224N Python Review Session Slides.pptx.pdf",
+      "filename": "2024 CS224N Python Review Session Slides.pptx.pdf"
+    }
+  },
+  "readings": [],
+  "external_links": [
+    {
+      "url": "https://colab.research.google.com/drive/1hxWtr98jXqRDs_rZLZcEmX_hUcpDLq6e?usp=sharing",
+      "title": "colab"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Downloaded course materials (Stanford files, keep out of VCS)
+*.pdf
+*.zip
+*.ppt
+*.pptx
+*.tgz
+
+# Assignment starter code
+assignments/*/starter/
+
+# Python virtualenv
+.venv/
+
+# Python bytecode
+__pycache__/
+
+# Transient download log (keep resources.json / urls.txt in VCS)
+_metadata/download.log
+
+# macOS noise
+.DS_Store

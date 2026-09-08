@@ -1,0 +1,70 @@
+{
+  "number": 14,
+  "title": "Question Answering and Knowledge",
+  "date": "Tue Feb 18",
+  "week": 7,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture13-QA.pdf",
+      "filename": "cs224n-2025-lecture13-QA.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+      "url": "https://arxiv.org/abs/1606.05250",
+      "section": "suggested"
+    },
+    {
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://arxiv.org/abs/2004.04906",
+      "section": "suggested"
+    },
+    {
+      "title": "Bidirectional Attention Flow for Machine Comprehension",
+      "url": "https://arxiv.org/abs/1611.01603",
+      "section": "suggested"
+    },
+    {
+      "title": "Reading Wikipedia to Answer Open-Domain Questions",
+      "url": "https://arxiv.org/abs/1704.00051",
+      "section": "suggested"
+    },
+    {
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+      "url": "https://arxiv.org/abs/2002.08909",
+      "section": "suggested"
+    },
+    {
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/abs/2307.03172",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://arxiv.org/abs/1606.05250",
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text"
+    },
+    {
+      "url": "https://arxiv.org/abs/2004.04906",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering"
+    },
+    {
+      "url": "https://arxiv.org/abs/1611.01603",
+      "title": "Bidirectional Attention Flow for Machine Comprehension"
+    },
+    {
+      "url": "https://arxiv.org/abs/1704.00051",
+      "title": "Reading Wikipedia to Answer Open-Domain Questions"
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.08909",
+      "title": "REALM: Retrieval-Augmented Language Model Pre-Training"
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.03172",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "number": 5,
+  "title": "Dependency Parsing",
+  "date": "Thu Jan 16",
+  "week": 2,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture04-dep-parsing.pdf",
+      "filename": "cs224n-2025-lecture04-dep-parsing.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-2019-notes04-dependencyparsing.pdf",
+      "filename": "cs224n-2019-notes04-dependencyparsing.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Incrementality in Deterministic Dependency Parsing",
+      "url": "https://www.aclweb.org/anthology/W/W04/W04-0308.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "A Fast and Accurate Dependency Parser using Neural Networks",
+      "url": "https://www.emnlp2014.org/papers/pdf/EMNLP2014082.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Dependency Parsing",
+      "url": "https://link.springer.com/book/10.1007/978-3-031-02131-2",
+      "section": "suggested"
+    },
+    {
+      "title": "Globally Normalized Transition-Based Neural Networks",
+      "url": "https://arxiv.org/pdf/1603.06042.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Universal Stanford Dependencies: A cross-linguistic typology",
+      "url": "http://nlp.stanford.edu/~manning/papers/USD_LREC14_UD_revision.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Universal Dependencies website",
+      "url": "http://universaldependencies.org/",
+      "section": "suggested"
+    },
+    {
+      "title": "Jurafsky & Martin Chapter 19",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/19.pdf",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://www.aclweb.org/anthology/W/W04/W04-0308.pdf",
+      "title": "Incrementality in Deterministic Dependency Parsing"
+    },
+    {
+      "url": "https://www.emnlp2014.org/papers/pdf/EMNLP2014082.pdf",
+      "title": "A Fast and Accurate Dependency Parser using Neural Networks"
+    },
+    {
+      "url": "https://link.springer.com/book/10.1007/978-3-031-02131-2",
+      "title": "Dependency Parsing"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1603.06042.pdf",
+      "title": "Globally Normalized Transition-Based Neural Networks"
+    },
+    {
+      "url": "http://nlp.stanford.edu/~manning/papers/USD_LREC14_UD_revision.pdf",
+      "title": "Universal Stanford Dependencies: A cross-linguistic typology"
+    },
+    {
+      "url": "http://universaldependencies.org/",
+      "title": "Universal Dependencies website"
+    },
+    {
+      "url": "https://web.stanford.edu/~jurafsky/slp3/19.pdf",
+      "title": "Jurafsky & Martin Chapter 19"
+    }
+  ]
+}

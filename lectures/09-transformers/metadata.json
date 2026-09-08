@@ -1,0 +1,83 @@
+{
+  "number": 9,
+  "title": "Transformers",
+  "date": "Thu Jan 30",
+  "week": 4,
+  "resources": {
+    "slides": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/slides_w25/cs224n-2025-lecture08-transformers.pdf",
+      "filename": "cs224n-2025-lecture08-transformers.pdf"
+    },
+    "notes": {
+      "url": "https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1254/readings/cs224n-self-attention-transformers-2023_draft.pdf",
+      "filename": "cs224n-self-attention-transformers-2023_draft.pdf"
+    }
+  },
+  "readings": [
+    {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "The Illustrated Transformer",
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "section": "suggested"
+    },
+    {
+      "title": "Transformer (Google AI blog post)",
+      "url": "https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html",
+      "section": "suggested"
+    },
+    {
+      "title": "Layer Normalization",
+      "url": "https://arxiv.org/pdf/1607.06450.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Image Transformer",
+      "url": "https://arxiv.org/pdf/1802.05751.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Music Transformer: Generating music with long-term structure",
+      "url": "https://arxiv.org/pdf/1809.04281.pdf",
+      "section": "suggested"
+    },
+    {
+      "title": "Jurafsky and Martin Chapter 9 (The Transformer)",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "section": "suggested"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://arxiv.org/abs/1706.03762.pdf",
+      "title": "Attention Is All You Need"
+    },
+    {
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "title": "The Illustrated Transformer"
+    },
+    {
+      "url": "https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html",
+      "title": "Transformer (Google AI blog post)"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1607.06450.pdf",
+      "title": "Layer Normalization"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1802.05751.pdf",
+      "title": "Image Transformer"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1809.04281.pdf",
+      "title": "Music Transformer: Generating music with long-term structure"
+    },
+    {
+      "url": "https://web.stanford.edu/~jurafsky/slp3/9.pdf",
+      "title": "Jurafsky and Martin Chapter 9 (The Transformer)"
+    }
+  ]
+}
