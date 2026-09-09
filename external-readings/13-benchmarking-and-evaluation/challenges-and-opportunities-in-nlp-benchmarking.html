@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Challenges and Opportunities in NLP Benchmarking</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preload" as="style" href="https://www.ruder.io/assets/built/screen.css?v=S0DSiw6jVHJaYsG0" />
+    <link rel="preload" as="script" href="https://www.ruder.io/assets/built/casper.js?v=YtPhrez3GuGLVDYs" />
+
+    <link rel="stylesheet" type="text/css" href="https://www.ruder.io/assets/built/screen.css?v=S0DSiw6jVHJaYsG0" />
+
+    <meta name="description" content="Recent NLP models have outpaced the benchmarks to test for them. This post provides an overview of challenges and opportunities for NLP benchmarks.">
+    <link rel="canonical" href="https://www.ruder.io/nlp-benchmarking/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="ruder.io">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Challenges and Opportunities in NLP Benchmarking">
+    <meta property="og:description" content="Recent NLP models have outpaced the benchmarks to test for them. This post provides an overview of challenges and opportunities for NLP benchmarks.">
+    <meta property="og:url" content="https://www.ruder.io/nlp-benchmarking/">
+    <meta property="og:image" content="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/squad_2_progress.png">
+    <meta property="article:published_time" content="2021-08-23T09:00:00.000Z">
+    <meta property="article:modified_time" content="2021-08-23T15:45:06.000Z">
+    <meta property="article:tag" content="natural language processing">
+    <meta property="article:tag" content="transfer learning">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Challenges and Opportunities in NLP Benchmarking">
+    <meta name="twitter:description" content="Recent NLP models have outpaced the benchmarks to test for them. This post provides an overview of challenges and opportunities for NLP benchmarks.">
+    <meta name="twitter:url" content="https://www.ruder.io/nlp-benchmarking/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/squad_2_progress.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Sebastian Ruder">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="natural language processing, transfer learning">
+    <meta name="twitter:site" content="@seb_ruder">
+    <meta property="og:image:width" content="1162">
+    <meta property="og:image:height" content="499">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "ruder.io",
+        "url": "https://www.ruder.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.ruder.io/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Sebastian Ruder",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w1200/2023/01/new_profile_photo_square.jpg",
+            "width": 1200,
+            "height": 1200
+        },
+        "url": "https://www.ruder.io/author/sebastian/",
+        "sameAs": []
+    },
+    "headline": "Challenges and Opportunities in NLP Benchmarking",
+    "url": "https://www.ruder.io/nlp-benchmarking/",
+    "datePublished": "2021-08-23T09:00:00.000Z",
+    "dateModified": "2021-08-23T15:45:06.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/squad_2_progress.png",
+        "width": 1162,
+        "height": 499
+    },
+    "keywords": "natural language processing, transfer learning",
+    "description": "Over the last years, models in NLP have become much more powerful, driven by advances in transfer learning. A consequence of this drastic increase in performance is that existing benchmarks have been left behind. Recent models \"have outpaced the benchmarks to test for them\" (AI Index Report 2021), quickly reaching super-human performance on standard benchmarks such as SuperGLUE and SQuAD. Does this mean that we have solved natural language processing? Far from it.\n\nHowever, the traditional pract",
+    "mainEntityOfPage": "https://www.ruder.io/nlp-benchmarking/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.63">
+    <link rel="alternate" type="application/rss+xml" title="ruder.io" href="https://www.ruder.io/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.71/umd/portal.min.js" data-i18n="true" data-ghost="https://www.ruder.io/" data-key="6b60716bbf3d589244fef88822" data-api="https://sebastians-blog.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="6b60716bbf3d589244fef88822" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://sebastians-blog.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://www.ruder.io/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=ShRHxgy4po8zN-Wf"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=WwnU9jw5ancNC8Gc">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://www.ruder.io/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=AKG4hWena9j3yX3I"></script><style>:root {--ghost-accent-color: #15171A;}</style>
+    <script>
+var profile_title = 'Sebastian Ruder';
+</script>
+<script>
+var disqus_shortname = 'sebastianruder';
+</script>
+<script>
+var profile_resume ='NLP PhD student';
+</script>
+<script>
+var ga_id = 'UA-60512592-1';
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body class="post-template tag-natural-language-processing tag-transfer-learning tag-hash-import-2023-01-22-21-50 is-head-left-logo has-cover">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head outer">
+        <div class="gh-head-inner inner">
+            <div class="gh-head-brand">
+                <a class="gh-head-logo no-image" href="https://www.ruder.io">
+                        ruder.io
+                </a>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger" aria-label="Main Menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-about"><a href="https://www.ruder.io/about/">About</a></li>
+    <li class="nav-papers"><a href="https://www.ruder.io/publications/">Papers</a></li>
+    <li class="nav-talks"><a href="https://www.ruder.io/talks/">Talks</a></li>
+    <li class="nav-faq"><a href="https://www.ruder.io/faq/">FAQ</a></li>
+    <li class="nav-newsletter"><a href="https://newsletter.ruder.io/">Newsletter</a></li>
+    <li class="nav-nlp-progress"><a href="https://nlpprogress.com/">NLP Progress</a></li>
+    <li class="nav-media"><a href="https://www.ruder.io/media/">Media</a></li>
+    <li class="nav-contact"><a href="https://www.ruder.io/contact/">Contact</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+<article class="article post tag-natural-language-processing tag-transfer-learning tag-hash-import-2023-01-22-21-50 ">
+
+    <header class="article-header gh-canvas">
+
+        <div class="article-tag post-card-tags">
+                <span class="post-card-primary-tag">
+                    <a href="/tag/natural-language-processing/">natural language processing</a>
+                </span>
+        </div>
+
+        <h1 class="article-title">Challenges and Opportunities in NLP Benchmarking</h1>
+
+
+        <div class="article-byline">
+        <section class="article-byline-content">
+
+            <ul class="author-list instapaper_ignore">
+                <li class="author-list-item">
+                    <a href="/author/sebastian/" class="author-avatar" aria-label="Read more of Sebastian Ruder">
+                        <img class="author-profile-image" src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w100/2023/01/new_profile_photo_square.jpg" alt="Sebastian Ruder" loading="eager" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="article-byline-meta">
+                <h4 class="author-name"><a href="/author/sebastian/">Sebastian Ruder</a></h4>
+                <div class="byline-meta-content">
+                    <time class="byline-meta-date" datetime="2021-08-23">23 Aug 2021</time>
+                        <span class="byline-reading-time"><span class="bull">&bull;</span> 16 min read</span>
+                </div>
+            </div>
+
+        </section>
+        <a href="#/share" class="gh-button gh-button-share">Share</a>
+        </div>
+
+            <figure class="article-image">
+                <img
+                    class="gh-feature-image"
+                    srcset="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w300/2021/08/squad_2_progress.png 300w,
+                            https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2021/08/squad_2_progress.png 600w,
+                            https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w1000/2021/08/squad_2_progress.png 1000w,
+                            https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w2000/2021/08/squad_2_progress.png 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w2000/2021/08/squad_2_progress.png"
+                    alt="Challenges and Opportunities in NLP Benchmarking"
+                    fetchpriority="high"
+                    loading="eager"
+                />
+            </figure>
+
+    </header>
+
+    <section class="gh-content gh-canvas">
+        <p>Over the last years, models in NLP have become much more powerful, driven by <a href="https://docs.google.com/presentation/d/1fIhGikFPnb7G5kr58OvYC3GN4io7MznnM0aAgadvJfc/edit?usp=sharing&ref=ruder.io">advances in transfer learning</a>. A consequence of this drastic increase in performance is that existing benchmarks have been left behind. Recent models "have outpaced the benchmarks to test for them" (<a href="https://aiindex.stanford.edu/wp-content/uploads/2021/03/2021-AI-Index-Report_Master.pdf?ref=ruder.io#page=11">AI Index Report 2021</a>), quickly reaching super-human performance on standard benchmarks such as <a href="https://super.gluebenchmark.com/?ref=ruder.io">SuperGLUE</a> and <a href="https://rajpurkar.github.io/SQuAD-explorer/?ref=ruder.io">SQuAD</a>. Does this mean that we have solved natural language processing? Far from it.</p><p>However, the traditional practices for evaluating performance of NLP models, using a single metric such as accuracy or BLEU, relying on static benchmarks and abstract task formulations no longer work as well in light of models' surprisingly robust <em>superficial</em> natural language understanding ability. We thus need to rethink how we design our benchmarks and evaluate our models so that they can still serve as useful indicators of progress going forward.</p><p>This post aims to give an overview of challenges and opportunities in benchmarking in NLP, together with some general recommendations. I tried to cover perspectives from recent papers, talks at ACL 2021 as well as at the <a href="https://github.com/kwchurch/Benchmarking_past_present_future?ref=ruder.io">ACL 2021 Workshop on Benchmarking: Past, Present and Future</a>, in addition to some of my own thoughts. </p><p><em>Header image: Performance on <a href="https://rajpurkar.github.io/SQuAD-explorer/?ref=ruder.io">SQuAD 2.0</a> over time (Credit: <a href="https://paperswithcode.com/sota/question-answering-on-squad20?ref=ruder.io">Papers with Code</a>)</em></p><p>Table of contents:</p><ul><li><a href="#what-is-a-benchmark">What is a benchmark?</a></li><li><a href="#a-brief-history-of-benchmarking">A brief history of benchmarking</a></li><li><a href="#metrics-matter">Metrics matter</a></li><li><a href="#consider-the-downstream-use-case">Consider the downstream use case</a></li><li><a href="#fine-grained-evaluation">Fine-grained evaluation</a></li><li><a href="#the-long-tail-of-benchmark-performance">The long tail of benchmark performance</a></li><li><a href="#large-scale-continuous-evaluation">Large-scale continuous evaluation</a></li></ul><h2 id="what-is-a-benchmark">What is a benchmark?</h2><blockquote><em>"Datasets are the telescopes of our field."</em>—<a href="https://youtu.be/t_A36DDcG_0?t=964&ref=ruder.io">Aravind Joshi</a></blockquote><p>The original use of the term refers to horizontal marks made by <a href="https://en.wikipedia.org/wiki/Surveying?ref=ruder.io">surveyors</a> in stone structures, into which an angle-iron could be placed to form a "bench" for a <a href="https://en.wikipedia.org/wiki/Level_staff?ref=ruder.io">leveling rod</a>. Figuratively, a benchmark refers to a standard point of reference against which things can be compared. A benchmark as it is used in ML or NLP typically has several components: it consists of one or multiple datasets, one or multiple associated metrics, and a way to aggregate performance.</p><p>A benchmark sets a standard for assessing the performance of different systems that is agreed upon by the community. To ensure that a benchmark is accepted by the community, many recent benchmarks either select a representative set of standard tasks, such as <a href="https://gluebenchmark.com/?ref=ruder.io">GLUE</a> or <a href="https://github.com/google-research/xtreme?ref=ruder.io">XTREME</a> or actively solicit task proposals from the community, such as <a href="https://super.gluebenchmark.com/?ref=ruder.io">SuperGLUE</a>, <a href="https://gem-benchmark.com/?ref=ruder.io">GEM</a>, or <a href="https://github.com/google/BIG-bench?ref=ruder.io">BIG-Bench</a>.</p><p>For people in the field, benchmarks are crucial tools to track progress. <a href="https://www.youtube.com/watch?t=964&v=t_A36DDcG_0&feature=youtu.be&ref=ruder.io">Aravind Joshi</a> said that without benchmarks to assess the performance of our models, we are just like "astronomers wanting to see the stars but refusing to build telescopes".</p><p>For practitioners and outsiders, benchmarks provide an objective lens into a field that enables them to identify useful models and keep track of a field's progress. For instance, the <a href="https://aiindex.stanford.edu/wp-content/uploads/2021/03/2021-AI-Index-Report_Master.pdf?ref=ruder.io#page=62">AI Index Report 2021</a> uses SuperGLUE and SQuAD as a proxy for overall progress in natural language processing.</p><p>Reaching human performance on influential benchmarks is often seen as a key milestone for a field. AlphaFold 2 reaching performance competitive with experimental methods on the CASP 14 competition marked a <a href="https://deepmind.com/blog/article/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology?ref=ruder.io">major scientific advance in the field of structural biology</a>.</p><h2 id="a-brief-history-of-benchmarking">A brief history of benchmarking</h2><blockquote><em>"Creating good benchmarks is harder than most imagine."</em>—John R. Mashey; foreword to <a href="https://www.springer.com/gp/book/9783030417048?ref=ruder.io">Systems Benchmarking (2020)</a></blockquote><p>Benchmarks have a long history of being used to assess the <a href="https://en.wikipedia.org/wiki/Benchmark_(computing)?ref=ruder.io">performance of computational systems</a>. The Standard Performance Evaluation Corporation (<a href="https://en.wikipedia.org/wiki/Standard_Performance_Evaluation_Corporation?ref=ruder.io">SPEC</a>), established in 1988 is one of the oldest organisations dedicated to benchmarking the performance of computer hardware. Crucially, SPEC had support from most important companies in the field. Every year, it would release different benchmark sets, each composed of multiple programs, with performance measured as the <a href="https://en.wikipedia.org/wiki/Geometric_mean?ref=ruder.io">geometric mean</a> of millions of instructions per second (<a href="https://en.wikipedia.org/wiki/Instructions_per_second?ref=ruder.io">MIPS</a>).</p><p>A recent ML-specific analogue to SPEC is <a href="https://mlcommons.org/en/?ref=ruder.io">MLCommons</a>, which organises the <a href="https://mlcommons.org/en/training-normal-10/?ref=ruder.io">MLPerf</a> series of performance benchmarks focusing on model training and inference. Similar to SPEC, MLPerf has a broad base of support from academia and industry, building on previous individual efforts for measuring performance such as <a href="https://github.com/baidu-research/DeepBench?ref=ruder.io">DeepBench</a> by Baidu or <a href="https://dawn.cs.stanford.edu/benchmark/?ref=ruder.io">DAWNBench</a> by Stanford. </p><p>For US agencies such as <a href="https://en.wikipedia.org/wiki/DARPA?ref=ruder.io">DARPA</a> and <a href="https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology?ref=ruder.io">NIST</a>, benchmarks played a crucial role in measuring and tracking scientific progress. Early benchmarks for automatic speech recognition (ASR) such as <a href="https://en.wikipedia.org/wiki/TIMIT?ref=ruder.io">TIMIT</a> and <a href="https://catalog.ldc.upenn.edu/LDC97S62?ref=ruder.io">Switchboard</a> were funded by DARPA and coordinated by <a href="https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology?ref=ruder.io">NIST</a> starting in 1986. Later influential benchmarks in other areas of ML such as <a href="https://en.wikipedia.org/wiki/MNIST_database?ref=ruder.io">MNIST</a> were also based on NIST data. </p><p>For language technology and information retrieval (IR), NIST ran the DARPA-funded <a href="https://en.wikipedia.org/wiki/Text_Retrieval_Conference?ref=ruder.io">TREC</a> series of workshops covering a wide array of tracks and topics, which can be seen below. TREC organised competitions built on an evaluation paradigm pioneered by <a href="https://en.wikipedia.org/wiki/Cranfield_experiments?ref=ruder.io">Cranfield</a> in the 1960s where models are evaluated based on a set of test collections, consisting of documents, questions, and human relevance judgements. As the variance in performance across topics is large, scores are averaged over many topics. TREC's "standard, widely available, and carefully constructed set of data laid the groundwork for further innovation" (<a href="https://googleblog.blogspot.com/2008/03/why-data-matters.html?ref=ruder.io">Varian, 2008</a>) in IR.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/trec_series.png" class="kg-image" alt loading="lazy"><figcaption>Tasks and topics in the TREC workshops from 1992–2020 (Credit: <a href="https://www.nist.gov/video/coopetition-ir-research-presented-ellen-voorhees?ref=ruder.io">Ellen Voorhees</a>)</figcaption></figure><p>Many recent influential benchmarks such as <a href="https://en.wikipedia.org/wiki/ImageNet?ref=ruder.io">ImageNet</a>, <a href="https://rajpurkar.github.io/SQuAD-explorer/?ref=ruder.io">SQuAD</a>, or <a href="https://aclanthology.org/D15-1075/?ref=ruder.io">SNLI</a> are large in scale, consisting of hundreds of thousands of examples and were developed by academic groups at well-funded universities. In the era of deep learning, such large-scale datasets have been credited as one of the pillars driving progress in research, with fields such as NLP or <a href="https://twitter.com/OriolVinyalsML/status/1333436710303264772?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1333436710303264772%7Ctwgr%5E%7Ctwcon%5Es1_c10&ref_url=https%3A%2F%2Fsyncedreview.com%2F2020%2F11%2F30%2Fbiologys-imagenet-moment-deepmind-says-its-alphafold-has-cracked-a-50-year-old-biology-challenge%2F&ref=ruder.io">biology</a> witnessing their <a href="https://thegradient.pub/nlp-imagenet/?ref=ruder.io">'ImageNet moment'</a>. </p><p>As models have become more powerful and general-purpose, benchmarks have become more application-oriented and increasingly moved from single-task to multi-task and single-domain to multi-domain benchmarks. Key examples of these trends are a transition from a focus on core linguistic tasks such as <a href="http://nlpprogress.com/english/part-of-speech_tagging.html?ref=ruder.io">part-of-speech tagging</a> and <a href="http://nlpprogress.com/english/dependency_parsing.html?ref=ruder.io">dependency parsing</a> to tasks that are closer to the real-world such as goal-oriented dialogue and open-domain question answering (<a href="https://research.google/pubs/pub47761/?ref=ruder.io">Kwiatkowski et al., 2019</a>); the emergence of multi-task datasets such as <a href="https://gluebenchmark.com/?ref=ruder.io">GLUE</a>; and multi-modality datasets such as <a href="https://wilds.stanford.edu/?ref=ruder.io">WILDS</a>.</p><p>However, while it took more than 15 years to achieve superhuman performance on classic benchmarks such as MNIST or Switchboard, models have achieved superhuman performance on more recent benchmarks such as GLUE and SQuAD 2.0 within about a year of their release, as can be seen in the figure below. At the same time, we know that the capabilities that these benchmarks aim to test, such as general question answering are far from being solved.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/dynabench_plot.png" class="kg-image" alt loading="lazy"><figcaption>Benchmark saturation over time for popular benchmarks. Initial performance and human performance are normalised to -1 and 0 respectively (<a href="https://aclanthology.org/2021.naacl-main.324.pdf?ref=ruder.io">Kiela et al., 2021</a>).</figcaption></figure><p>Another factor that has contributed to the saturation of these benchmarks is that limitations and annotation artefacts of recent datasets have been identified much more quickly compared to earlier benchmarks. In SNLI, annotators have been shown to rely on heuristics, which allow models to make the correct prediction in many cases using the hypothesis alone (<a href="https://aclanthology.org/N18-2017.pdf?ref=ruder.io">Gururangan et al., 2018</a>) while models trained on SQuAD are subject to adversarially inserted sentences (<a href="https://aclanthology.org/D17-1215/?ref=ruder.io">Jia and Liang, 2017</a>).</p><p>A recent trend is the development of adversarial datasets such as Adversarial NLI (<a href="https://aclanthology.org/2020.acl-main.441/?ref=ruder.io">Nie et al., 2020</a>), Beat the AI (<a href="https://aclanthology.org/2020.tacl-1.43.pdf?ref=ruder.io">Bartolo et al., 2020</a>), and others where examples are created to be difficult for current models. <a href="https://dynabench.org/?ref=ruder.io">Dynabench</a> (<a href="https://aclanthology.org/2021.naacl-main.324.pdf?ref=ruder.io">Kiela et al., 2021</a>), a recent open-source platform has been designed to facilitate the creation of such datasets. A benefit of such benchmarks is that they can be dynamically updated to be challenging as new models emerge and consequently do not saturate as easily as static benchmarks.</p><h2 id="metrics-matter">Metrics matter</h2><blockquote><em>"When you can measure what you are speaking of and express it in numbers, you know that on which you are discussing. But when you cannot measure it and express it in numbers, your knowledge is of a very meagre and unsatisfactory kind."</em>—Lord Kelvin</blockquote><p>When it comes to measuring performance, metrics play an important and often under-appreciated role. For classification tasks, accuracy or <a href="https://en.wikipedia.org/wiki/F-score?ref=ruder.io">F-score</a> metrics may seem like the obvious choice but—depending on the application—different types of errors incur different costs. For fine-grained sentiment analysis, confusing between <em>positive</em> and <em>very positive</em> may not be problematic while mixing up <em>very positive</em> and <em>very negative</em> is. Chris Potts highlights an <a href="https://youtu.be/t_A36DDcG_0?t=1824&ref=ruder.io">array of practical examples</a> where metrics like F-score fall short, many in scenarios where errors are much more costly.</p><!--kg-card-begin: markdown--><p>Designing a good metric requires domain expertise. <a href="https://mlcommons.org/en/training-normal-10/?ref=ruder.io">MLPerf</a> measures the wallclock time required to train a model to a dataset-specific performance target, a measure informed by both end use cases and the difficulty to compare other efficiency metrics such as FLOPS across models. In ASR, only the percentage of correctly transcribed words (akin to accuracy) was initially used as the metric. The community later settled on <a href="https://en.wikipedia.org/wiki/Word_error_rate?ref=ruder.io">word error rate</a>, i.e. $\frac{\text{substitutions} + \text{deletions} + \text{insertions}}{\text{number of words in reference}}$ as it directly reflects the cost of correcting transcription errors.</p>
+<!--kg-card-end: markdown--><p>There is a large difference between metrics designed for decades-long research and metrics designed for near-term development of practical applications, as highlighted by <a href="https://youtu.be/a-ukPup8gKw?t=770&ref=ruder.io">Mark Liberman</a>. For developing decade-scale technology, we need efficient metrics that can be crude as long as they point in the general direction of our distant goal. Examples of such metrics are the word error rate in ASR (which assumes that all words are equally important) and BLEU in machine translation (which assumes that word order is not important). In contrast, for the evaluation of practical technology we need metrics that are designed with the requirements of specific applications in mind and that can consider different types of error classes.</p><p>The rapid increase in model performance in recent years has catapulted us from the decade-long to the near-term regime for many applications. However, even in this more application-oriented setting we are still relying on the same metrics that we have used to measure long-term research progress thus far. In a recent meta-analysis, <a href="https://aclanthology.org/2021.acl-long.566.pdf?ref=ruder.io">Marie et al. (2021)</a> found that 82% papers of machine translation (MT) papers between 2019–2020 only evaluate on BLEU—despite 108 alternative metrics having been proposed for MT evaluation in the last decade, many of which correlate better with human judgements. As models become stronger, metrics like BLEU are no longer able to accurately identify and compare the best-performing models.</p><p>While evaluation of natural language generation (NLG) models is notoriously difficult, standard n-gram overlap-based metrics such as ROUGE or BLEU are furthermore less suited to languages with rich morphology, which will be assigned relatively lower scores.</p><p>A recent trend in NLG is towards the development of automatic metrics such as BERTScore (<a href="https://openreview.net/forum?id=SkeHuCVFDr&ref=ruder.io">Zhang et al., 2020</a>) that leverage the power of large pre-trained models. A recent modification of this method makes it more suitable for near-term MT evaluation by assigning larger weights to more difficult tokens, i.e. tokens that are translated correctly only by few MT systems (<a href="https://aclanthology.org/2021.acl-short.5.pdf?ref=ruder.io">Zhan et al., 2021</a>).</p><p>In order to continue to make progress, we need to be able to update and refine our metrics, to replace efficient simplified metrics with application-specific ones. The recent <a href="https://gem-benchmark.com/?ref=ruder.io">GEM benchmark</a>, for instance, explicitly includes <a href="https://github.com/GEM-benchmark/GEM-metrics?ref=ruder.io">metrics</a> as a component that should be improved over time, as can be seen below.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/opportunities_of_benchmarks.png" class="kg-image" alt loading="lazy"><figcaption>Opportunities (circle) and challenges of benchmark evaluation (<a href="https://aclanthology.org/2021.gem-1.10.pdf?ref=ruder.io">Gehrmann et al., 2021</a>).</figcaption></figure><p><strong>Recommendations:</strong></p><ol><li>Consider metrics that are better suited to the downstream task and language.</li><li>Consider metrics that highlight the trade-offs of the downstream setting.</li><li>Update and refine metrics over time.</li></ol><h2 id="consider-the-downstream-use-case">Consider the downstream use case</h2><blockquote><em>"[...] benchmarks shape a field, for better or worse. Good benchmarks are in alignment with real applications, but bad benchmarks are not, forcing engineers to choose between making changes that help end users or making changes that only help with marketing."</em>—David A. Patterson; foreword to <a href="https://www.springer.com/gp/book/9783030417048?ref=ruder.io">Systems Benchmarking (2020)</a></blockquote><p>NLP technology is increasingly used in many real-world application areas, <a href="https://youtu.be/t_A36DDcG_0?t=278&ref=ruder.io">from creative self-expression to fraud detection and recommendation</a>. It is thus key to design benchmarks with such real-world settings in mind. </p><p>A benchmark's data composition and evaluation protocol should reflect the real-world use case, as highlighted by <a href="https://youtu.be/Jb6G25ZJ-VU?t=307&ref=ruder.io">Ido Dagan</a>. For relation classification, for instance, the <a href="https://aclanthology.org/D18-1514/?ref=ruder.io">FewRel</a> dataset <a href="https://youtu.be/Jb6G25ZJ-VU?t=657&ref=ruder.io">lacks some important realistic properties</a>, which <a href="https://arxiv.org/abs/2104.08481?ref=ruder.io">Few-shot TACRED</a> addresses. For binary sentiment classification on the <a href="https://ai.stanford.edu/~ang/papers/acl11-WordVectorsSentimentAnalysis.pdf?ref=ruder.io">IMDb dataset</a>, only highly polarised positive and negative reviews are considered and labels are exactly balanced. In information retrieval, retrieving relevant before non-relevant documents is <a href="https://www.nist.gov/video/coopetition-ir-research-presented-ellen-voorhees?ref=ruder.io">necessary <em>but not sufficient</em> for real-world usage</a>.</p><p>As a first rule of social responsibility for NLP, <a href="https://youtu.be/t_A36DDcG_0?t=661&ref=ruder.io">Chris Potts proposes</a> "Do exactly what you said you would do". As researchers in the field, we should communicate clearly what performance on a benchmark reflects and how this corresponds to real-world settings. In a similar vein, <a href="https://aclanthology.org/2021.naacl-main.385.pdf?ref=ruder.io">Bowman and Dahl (2021)</a> argue that good performance on a benchmark should imply robust in-domain performance on the task. </p><p>However, the real-world application of a task may confront the model with data different from its training distribution. It is thus key to assess the robustness of the model and how well it generalises to such out-of-distribution data, including data with a temporal shift and data from other language varieties.</p><p>In light of the limited linguistic diversity in NLP research (<a href="https://aclanthology.org/2020.acl-main.560/?ref=ruder.io">Joshi et al., 2020</a>), it is furthermore crucial not to treat English as the singular language for evaluation. When designing a benchmark, collecting—at a minimum—test data in other languages may help to highlight new challenges and promote language inclusion. Similarly, when evaluating models, leveraging the increasing number of non-English language datasets in tasks such as <a href="https://nlpprogress.com/?ref=ruder.io">question answering</a> and summarisation (<a href="https://aclanthology.org/2021.findings-acl.413/?ref=ruder.io">Hasan et al., 2021</a>) can provide additional evidence of a model's versatility.</p><p>Ultimately, considering the challenges of current and future real-world applications of language technology may provide inspiration for many new evaluations and benchmarks. Benchmarks are among the most impactful artefacts of our field and often lead to entirely new research directions, so it is crucial for them to reflect real-world and potentially ambitious use cases of our technology.</p><p><strong>Recommendations:</strong></p><ol><li>Design the benchmark and its evaluation so that it reflects the real-world use case.</li><li>Evaluate in-domain and out-of-domain generalisation.</li><li>Collect data and evaluate models on other languages.</li><li>Take inspiration from real-world applications of language technology.</li></ol><h2 id="fine-grained-evaluation">Fine-grained evaluation</h2><blockquote><em>"No matter how much people want performance to be a single number, even the <strong>right</strong> mean with no distribution can be misleading, and the <strong>wrong</strong> mean certainly is no better."</em>—John R. Mashey</blockquote><p>The downstream use case of technology should also inform the metrics we use for evaluation. In particular, for downstream applications often not a single metric but an array of constraints need to be considered. Rada Mihalcea <a href="https://youtu.be/FXCSWvIsdEE?t=1226&ref=ruder.io">calls for moving away from just focusing on accuracy</a> and to focus on other important aspects of real-world scenarios. What is important in a particular setting, in other words, the utility of an NLP system, ultimately depends on the requirements of each individual user (<a href="https://aclanthology.org/2020.emnlp-main.393/?ref=ruder.io">Ethayarajh and Jurafsky, 2020</a>). </p><p>Societal needs have generally not been emphasised in machine learning research (<a href="https://arxiv.org/abs/2106.15590?ref=ruder.io">Birhane et al., 2021</a>). However, for real-world applications it is particularly crucial that a model does not exhibit any harmful social biases. Testing for such biases in a task-specific manner should thus become a standard part of algorithm development and model evaluation.</p><p>Another aspect that is important for practical applications is efficiency. Depending on the application, this can relate to both sample efficiency, <a href="https://en.wikipedia.org/wiki/FLOPS?ref=ruder.io">FLOPS</a>, and memory constraints. Evaluating models in resource-constrained settings can often lead to new research directions. For instance, the EfficientQA competition (<a href="https://arxiv.org/abs/2101.00133?ref=ruder.io">Min et al., 2020</a>) at NeurIPS 2020 demonstrated the benefits of <a href="https://ruder.io/research-highlights-2020/?ref=ruder.io#2-retrieval-augmentation">retrieval augmentation</a> and large collections of weakly supervised question–answer pairs (<a href="https://arxiv.org/abs/2102.07033?ref=ruder.io">Lewis et al., 2021</a>).</p><p>In order to better understand the strengths and weaknesses of our models, we furthermore require more fine-grained evaluation across a <em>single</em> metric, highlighting on what types of examples models excel and fail at. <a href="http://explainaboard.nlpedia.ai/?ref=ruder.io">ExplainaBoard</a> (<a href="https://aclanthology.org/2021.acl-demo.34/?ref=ruder.io">Liu et al., 2021</a>) implements such a fine-grained breakdown of model performance across different tasks, which can be seen below. Another way to obtain a more fine-grained estimate of model performance is to create test cases for specific phenomena and model behaviour, for instance using the CheckList framework (<a href="https://aclanthology.org/2020.acl-main.442/?ref=ruder.io">Ribeiro et al., 2020</a>).</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/explainaboard_leaderboard-1.png" class="kg-image" alt loading="lazy"><figcaption>The <a href="http://explainaboard.nlpedia.ai/leaderboard/task-ner/index.php?ref=ruder.io">ExplainaBoard interface for the CoNLL-2003 NER dataset</a> for the three best systems including single-system analyses for the best system (A), pairwise analysis results for the top-2 systems (B), a common error table (C), and combined results (D) (<a href="https://aclanthology.org/2021.acl-demo.34.pdf?ref=ruder.io">Liu et al., 2021</a>).</figcaption></figure><!--kg-card-begin: markdown--><p>As individual metrics can be flawed, it is key to evaluate across multiple metrics. When evaluating on multiple metrics, scores are typically averaged to obtain a single score. A single score is useful to compare models at a glance and provides people outside the community a clear way to assess model performance. However, using the arithmetic mean is not appropriate for all purposes. SPEC used the geometric mean, $\sqrt[\leftroot{-2}\uproot{2}n]{x_1 x_2 \ldots x_n}$, which is useful when aggregating values that are exponential in nature, such as runtimes.</p>
+<!--kg-card-end: markdown--><p>An alternative is to use a weighted sum and to enable the user to define their own weights for each component. <a href="https://dynabench.org/?ref=ruder.io">DynaBench</a> uses such a dynamic weighting to weight the importance of model performance but also consider model throughput, memory consumption, fairness, and robustness, which enables users to effectively define their own leaderboard (<a href="https://aclanthology.org/2020.emnlp-main.393/?ref=ruder.io">Ethayarajh and Jurafsky, 2020</a>), as can be seen below.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/2021/08/dynabench_weighting.png" class="kg-image" alt loading="lazy"><figcaption>Dynamic metric weighting in the <a href="https://dynabench.org/tasks/nli?ref=ruder.io">DynaBench natural language inference task leaderboard</a></figcaption></figure><p><strong>Recommendations:</strong></p><ol><li>Move away from using a single metric for performance evaluation.</li><li>Evaluate social bias and efficiency.</li><li>Perform a fine-grained evaluation of models.</li><li>Consider how to aggregate multiple metrics. </li></ol><h2 id="the-long-tail-of-benchmark-performance">The long tail of benchmark performance</h2><p>Given that current models perform surprisingly well on in-distribution examples, it is time to shift our attention to the tail of the distribution, to outliers and atypical examples. Rather than considering only the average case, we should care more about the worst case and subsets of our data where our models perform the worst.</p><p>As models become more powerful, the fraction of examples where the performance of models differs and that thus will be able to differentiate between strong and the best models will grow smaller. To ensure that evaluation on this long tail of examples is reliable, benchmarks need to be large enough so that small differences in performance can be detected. It is important to note that larger models are not uniformly better across all examples (<a href="https://aclanthology.org/2021.findings-acl.334.pdf?ref=ruder.io">Zhong et al., 2021</a>).</p><p>As an alternative, we can develop mechanisms that allow us to identify the best systems with few examples. This is particularly crucial in settings where assessing performance of many systems is expensive, such as in human evaluation for natural language generation. <a href="https://aclanthology.org/2021.acl-long.242/?ref=ruder.io">Mendonça et al. (2021)</a> frame this as an online learning problem in the context of MT.</p><p>Benchmarks can also focus on annotating examples that are much more challenging. This is the direction taken by recent adversarial benchmarks (<a href="https://aclanthology.org/2021.naacl-main.324.pdf?ref=ruder.io">Kiela et al., 2021</a>). Such benchmarks, as long as they are not biased towards a specific model, can be a useful complement to regular benchmarks that sample from the natural distribution. These directions benefit from the development of <em>active </em>evaluation methods to identify or generate the most salient and discriminative examples to assess model performance as well as interpretability methods to allow annotators to better understand models' decision boundaries.</p><p>As the budget (and thus size) of benchmarks generally remains constant, statistical significance testing becomes even more important as it enables us to reliably detect qualitatively relevant performance differences between systems. </p><p>In order to perform reliable comparisons, the benchmark's annotations should be correct and reliable. However, as models become more powerful, many instances of what look like model errors may be genuine examples of ambiguity in the data. <a href="https://aclanthology.org/2021.naacl-main.385.pdf?ref=ruder.io">Bowman and Dahl (2021)</a> highlight how a model may exploit clues about such disagreements to reach super-human performance on a benchmark.</p><p>If possible, benchmarks should aim to collect multiple annotations to identify ambiguous examples. Such information may provide a useful learning signal (<a href="https://aclanthology.org/P14-2083.pdf?ref=ruder.io">Plank et al., 2014</a>) and can be helpful for error analysis. In light of such ambiguity, it is even more important to report standard metrics such as inter-annotator agreement as this provides a ceiling for a model's performance on a benchmark.</p><p><strong>Recommendations:</strong></p><ol><li>Include many and/or hard examples in the benchmark.</li><li>Conduct statistical significance testing.</li><li>Collect multiple annotations for ambiguous examples.</li><li>Report inter-annotator agreement.</li></ol><h2 id="large-scale-continuous-evaluation">Large-scale continuous evaluation</h2><blockquote><em>"When a measure becomes a target, it ceases to be a good measure."</em>—Goodhart's law</blockquote><p>Multi-task benchmarks such as GLUE have become key indicators of progress but such static benchmark collections quickly become outdated. Modelling advances generally also do not lead to uniform progress across tasks. While models have achieved super-human performance on most GLUE tasks, a gap to 5-way human agreement remains on some tasks such as CoLA (<a href="https://aclanthology.org/P19-1449.pdf?ref=ruder.io">Nangia and Bowman, 2019</a>). On <a href="https://sites.research.google/xtreme/?ref=ruder.io">XTREME</a>, models have improved much more on cross-lingual retrieval.</p><p>In light of the fast pace of model improvements, we are in need of more nimble mechanisms for model evaluation. Specifically, beyond dynamic <em>single-task</em> evaluations such as <a href="https://dynabench.org/?ref=ruder.io">DynaBench</a>, it would be useful to define a dynamic <em>collection</em> of benchmark datasets on which models have not reached human performance. This collection should be managed by the community, with datasets removed or down-weighted as models reach human performance and new challenging datasets being regularly added. Such a collection needs to be versioned, to enable updates beyond the cycle of academic review and to enable replicability and comparison to prior approaches.</p><p>Existing multi-task benchmarks such as <a href="https://gem-benchmark.com/?ref=ruder.io">GEM</a> (<a href="https://arxiv.org/abs/2102.01672?ref=ruder.io">Gehrmann et al., 2021</a>), which explicitly aims to be a 'living' benchmark, generally include around 10–15 different tasks. Rather than limiting the benchmark to a small collection of representative tasks, in light of the number of new datasets constantly being released, it might be more useful to include a larger cross-section of NLP tasks. Given the diverse nature of tasks in NLP, this would provide a more robust and up-to-date evaluation of model performance. <a href="https://www.luge.ai/?ref=ruder.io">LUGE</a> by Baidu is a step towards such a large collection of tasks for Chinese natural language processing, currently consisting of 28 datasets.</p><p>The collection of tasks can be broken down in various ways, providing more a fine-grained assessment of model capabilities. Such a breakdown may be particularly insightful if tasks or subsets of task data are categorised according to the behaviour they are testing. <a href="https://github.com/google/BIG-bench?ref=ruder.io">BIG-Bench</a>, a recent collaborative benchmark for language model probing includes a <a href="https://github.com/google/BIG-bench/blob/main/bigbench/benchmark_tasks/keywords_to_tasks.md?ref=ruder.io">categorisation by keyword</a>.</p><p>A key challenge for such large-scale multi-task evaluation is accessibility. Tasks need to be available in a common input format so that they can be run easily. In addition, tasks should be efficient to run or alternatively infrastructure needs to be available to run tasks even without much compute.</p><p>Another point of consideration is that such a collection favours large general-purpose models, which are generally trained by deep-pocketed companies or institutions. Such models, however, are already used as the starting point for most current research efforts and can be—once trained—more efficiently used via <a href="https://ruder.io/recent-advances-lm-fine-tuning/?ref=ruder.io#behavioural-fine-tuning">fine-tuning</a>, distillation, or pruning.</p><p><strong>Recommendations:</strong></p><ol><li>Consider collecting and evaluating on a large, diverse, versioned collection of NLP tasks.</li></ol><h2 id="conclusion">Conclusion</h2><p>In order to keep up with advances in modelling, we need to revisit many tacitly accepted benchmarking practices such as relying on simplistic metrics like F1-score and BLEU. To this end, we should take inspiration from real-world applications of language technology and consider the constraints and requirements that such settings pose for our models. We should also care more about the long tail of the distribution as that is where improvements will be observed for many applications. Lastly, we should be more rigorous in the evaluation on our models and rely on multiple metrics and statistical significance testing, contrary to <a href="https://aclanthology.org/2021.acl-long.566.pdf?ref=ruder.io">current trends</a>.</p><h2 id="citation">Citation</h2><p>For attribution in academic contexts, please cite this work as:</p><pre><code>@misc{ruder2021benchmarking,
+  author = {Ruder, Sebastian},
+  title = {{Challenges and Opportunities in NLP Benchmarking}},
+  year = {2021},
+  howpublished = {\url{http://ruder.io/nlp-benchmarking}},
+}</code></pre>
+    </section>
+
+        <section class="article-comments gh-canvas">
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.6/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://www.ruder.io/" data-api="https://sebastians-blog.ghost.io/ghost/api/content/" data-admin="https://sebastians-blog.ghost.io/ghost/" data-key="6b60716bbf3d589244fef88822" data-title="null" data-count="true" data-post-id="63cdaf9ba432de003c1f19e6" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#15171A" data-comments-enabled="all" data-publication="ruder.io" crossorigin="anonymous"></script>
+    
+        </section>
+
+</article>
+</main>
+
+
+
+
+            <aside class="read-more-wrap outer">
+                <div class="read-more inner">
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/the-evolving-landscape-of-llm-evaluation/">
+
+        <img class="post-card-image"
+            srcset="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w300/2024/10/gsm8k_vs_gsm1k.jpg 300w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/gsm8k_vs_gsm1k.jpg 600w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w1000/2024/10/gsm8k_vs_gsm1k.jpg 1000w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w2000/2024/10/gsm8k_vs_gsm1k.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/gsm8k_vs_gsm1k.jpg"
+            alt="The Evolving Landscape of LLM Evaluation"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/the-evolving-landscape-of-llm-evaluation/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    The Evolving Landscape of LLM Evaluation
+                </h2>
+            </header>
+                <div class="post-card-excerpt">This post explores problems contributing to a benchmark crisis in LLM evaluation and potential solutions.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-05-13">13 May 2024</time>
+                <span class="post-card-meta-length">5 min read</span>
+                <script
+    data-ghost-comment-count="671a1606a83a940001c72261"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/command-r/">
+
+        <img class="post-card-image"
+            srcset="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w300/2024/10/command_r-_chatbot_arena.jpg 300w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/command_r-_chatbot_arena.jpg 600w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w1000/2024/10/command_r-_chatbot_arena.jpg 1000w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w2000/2024/10/command_r-_chatbot_arena.jpg 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/command_r-_chatbot_arena.jpg"
+            alt="Command R+"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/command-r/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    Command R+
+                </h2>
+            </header>
+                <div class="post-card-excerpt">This post discusses Command R and Command R+, the top open-weights model on Chatbot Arena at the time of its release and highlights their RAG and multilingual capabilities.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-04-15">15 Apr 2024</time>
+                <span class="post-card-meta-length">7 min read</span>
+                <script
+    data-ghost-comment-count="6719254ca83a940001c72232"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post">
+
+    <a class="post-card-image-link" href="/true-zero-shot-mt/">
+
+        <img class="post-card-image"
+            srcset="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w300/2024/10/grammar_kalamang.png 300w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/grammar_kalamang.png 600w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w1000/2024/10/grammar_kalamang.png 1000w,
+                    https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w2000/2024/10/grammar_kalamang.png 2000w"
+            sizes="(max-width: 1000px) 400px, 800px"
+            src="https://storage.ghost.io/c/bd/89/bd89d480-b8e0-47e6-8bae-dcb0d061b8d7/content/images/size/w600/2024/10/grammar_kalamang.png"
+            alt="True Zero-shot MT"
+            loading="lazy"
+        />
+
+
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="/true-zero-shot-mt/">
+            <header class="post-card-header">
+                <div class="post-card-tags">
+                </div>
+                <h2 class="post-card-title">
+                    True Zero-shot MT
+                </h2>
+            </header>
+                <div class="post-card-excerpt">This post discusses recent results on extremely long-context benchmarks, explores true zero-shot machine translation (MT), and considers how to teach LLMs a new language like humans.</div>
+        </a>
+
+        <footer class="post-card-meta">
+            <time class="post-card-meta-date" datetime="2024-02-27">27 Feb 2024</time>
+                <span class="post-card-meta-length">8 min read</span>
+                <script
+    data-ghost-comment-count="6718fa5ca83a940001c721fd"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://www.ruder.io">ruder.io</a> &copy; 2026</section>
+            <div class="site-footer-center">
+                <div class="site-footer-social-links">
+                        <a href="https://x.com/seb_ruder" target="_blank" rel="noopener" aria-label="X">
+<svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.2439 2.25H21.5519L14.3249 10.51L22.8269 21.75H16.1699L10.9559 14.933L4.98991 21.75H1.67991L9.40991 12.915L1.25391 2.25H8.07991L12.7929 8.481L18.2439 2.25ZM17.0829 19.77H18.9159L7.08391 4.126H5.11691L17.0829 19.77Z" fill="currentColor"/>
+</svg>                        </a>
+                </div>
+                <nav class="site-footer-nav">
+                    
+                </nav>
+            </div>
+            <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://www.ruder.io/assets/built/casper.js?v=YtPhrez3GuGLVDYs" defer></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<script>jQuery = Zepto</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-coy.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-python.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60512592-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-60512592-1');
+</script>
+
+</body>
+</html>
