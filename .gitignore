@@ -8,6 +8,9 @@
 # Assignment starter code
 assignments/*/starter/
 
+# Large assignment datasets (keep local, do not push)
+assignments/**/data/
+
 # Python virtualenv
 .venv/
 
