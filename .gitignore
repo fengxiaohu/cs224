@@ -17,6 +17,11 @@ assignments/**/data/
 # Python bytecode
 __pycache__/
 
+# Downloaded external snapshots (keep links.md and INDEX.md)
+external-readings/**/*.html
+external-readings/**/*.ipynb
+external-readings/manifest.json
+
 # Transient download log (keep resources.json / urls.txt in VCS)
 _metadata/download.log
 
