@@ -51,6 +51,14 @@ Prove that the naive-softmax loss (Equation \ref{naive-softmax}) is the same as 
 
 Your answer should be one line. You may describe your answer in words.
 
+\ifans{Since \(\mathbf{y}\) is one-hot with \(y_o=1\) and \(y_w=0\) for all \(w\neq o\), every term in the sum vanishes except \(w=o\), so the cross-entropy reduces to \(-\log(\hat{y}_o)\).
+As a toy example, let the vocabulary be \(\{a,b,o\}\) with true outside word \(o\), so \(\mathbf{y}=(0,0,1)\). Expanding the sum,
+\begin{align*}
+-\sum_{w\in\{a,b,o\}} y_w\log(\hat{y}_w)
+&= -\bigl(y_a\log\hat{y}_a + y_b\log\hat{y}_b + y_o\log\hat{y}_o\bigr) \\
+&= -\bigl(0\cdot\log\hat{y}_a + 0\cdot\log\hat{y}_b + 1\cdot\log\hat{y}_o\bigr) \\
+&= -\log(\hat{y}_o).
+\end{align*}}
 
 % Question 1-B
 \part[6]
@@ -61,11 +69,22 @@ Your answer should be one line. You may describe your answer in words.
         \item \textbf{Note}: Your final answers for the partial derivative should follow the shape convention: the partial derivative of any function $f(x)$ with respect to $x$ should have the \textbf{same shape} as $x$.\footnote{This allows us to efficiently minimize a function using gradient descent without worrying about reshaping or dimension mismatching. While following the shape convention, we're guaranteed that $\theta:= \theta - \alpha\frac{\partial J(\theta)}{\partial \theta}$ is a well-defined update rule.}
         \item Please provide your answers for the partial derivative in vectorized form. For example, when we ask you to write your answers in terms of $\by$, $\hat{\by}$, and $\bU$, you may not refer to specific elements of these terms in your final answer (such as $\by_1$, $\by_2$, $\dots$). You may also not refer to specific vectors such as $u_0$, $u_1$, etc.
     \end{itemize}
+    \ifans{Rewrite the loss as
+    \(J=-\bu_o^\top\bv_c+\log\sum_{w}\exp(\bu_w^\top\bv_c)\).
+    Differentiating with respect to \(\bv_c\) gives
+    \(\partial J/\partial\bv_c=-\bu_o+\sum_w\hat y_w\bu_w\),
+    where \(\hat y_w=P(O=w\mid C=c)\).
+    Because the columns of \(\bU\) are the outside vectors and \(\by\) is one-hot at \(o\),
+    \(\bu_o=\bU\by\) and \(\sum_w\hat y_w\bu_w=\bU\hat{\by}\).
+    Therefore
+    \[\frac{\partial \bJ_{\text{naive-softmax}}}{\partial \bv_c}=\bU(\hat{\by}-\by).\]}
     \item
     When is the gradient you computed equal to zero? Write a mathematical equation. \\
     \textbf{Hint:} You may wish to review and use some introductory linear algebra concepts.
+    \ifans{The gradient is zero iff \(\bU(\hat{\by}-\by)=\mathbf{0}\), i.e.\ \(\hat{\by}-\by\) lies in \(\mathrm{Null}(\bU)\). A sufficient condition is \(\hat{\by}=\by\). Since \(\bU\in\mathbb{R}^{d\times|V|}\) typically has \(d\ll|V|\), its columns are linearly dependent, so \(\hat{\by}=\by\) is not necessary.}
     \item
     The gradient you found is the difference between the two terms. Provide an interpretation of how each of these terms improves the word vector when this gradient is subtracted from the word vector $v_c$.
+    \ifans{The update is \(\bv_c\leftarrow\bv_c-\alpha\bU\hat{\by}+\alpha\bU\by\). The true-context term \(\bU\by=\bu_o\) is added to \(\bv_c\), pulling the center vector toward the true outside word and increasing \(\bu_o^\top\bv_c\). The predicted-context term \(\bU\hat{\by}=\sum_w\hat y_w\bu_w\) is subtracted, pushing \(\bv_c\) away from currently over-predicted outside words and decreasing those dot products.}
 
 \end{enumerate}
 
@@ -77,15 +96,27 @@ In many downstream applications using word embeddings, L2 normalized vectors (e.
 
 \textbf{Hint:} Consider the case where $\mathbf{u}_x = \alpha\mathbf{u}_y$ for some words $x \neq y$ and some scalar $\alpha$. When $\alpha$ is positive, what will be the value of normalized  $\mathbf{u}_x$ and normalized $\mathbf{u}_y$? How might $\mathbf{u}_x$ and $\mathbf{u}_y$ be related for such a normalization to affect or not affect the resulting classification?
 
+\ifans{If \(\mathbf{u}_x=\alpha\mathbf{u}_y\) with \(\alpha>0\), then \(\mathbf{u}_x/\|\mathbf{u}_x\|_2=\mathbf{u}_y/\|\mathbf{u}_y\|_2\), so the two words become the same unit vector and any difference in magnitude is discarded. L2 normalization takes away useful information when magnitude encodes strength (e.g.\ a large positive vector plus a small opposite vector): after normalizing, each word contributes equally and the sign of the sum can flip. It does not take away useful information when classification depends only on direction---for example all words in the phrase point the same way, so \(\mathrm{sign}(\sum\mathbf{u}_i)\) is unchanged---or when the vectors already have equal L2 norms (e.g.\ \(\alpha=\pm 1\)).}
 
 % Question 1-D
 \part[1]
 Write down the partial derivative of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$ with respect to $\bU$. Please break down your answer in terms of the column vectors $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_1}$, $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_2}$, $\cdots$, $\frac{\partial \bJ(\bv_c, o, \bU)}{\partial \bu_{|\text{Vocab}|}}$ (do not further expand these terms). No derivations are necessary, just an answer in the form of a matrix.
 
+\ifans{Since the columns of \(\bU\) are the outside vectors, \(\partial J/\partial\bU\) has the same shape \(d\times|V|\) and those columns are the corresponding vector derivatives:
+\[\frac{\partial \bJ_{\text{naive-softmax}}}{\partial\bU}
+=
+\begin{bmatrix}
+\dfrac{\partial \bJ(\bv_c,o,\bU)}{\partial\bu_1} &
+\dfrac{\partial \bJ(\bv_c,o,\bU)}{\partial\bu_2} &
+\cdots &
+\dfrac{\partial \bJ(\bv_c,o,\bU)}{\partial\bu_{|V|}}
+\end{bmatrix}.\]}
 
 % Question 1-E
 \part[5] 
 Compute the partial derivatives of $\bJ_{\text{naive-softmax}}(\bv_c, o, \bU)$ with respect to each of the `outside' word vectors, $\bu_w$'s. There will be two cases: when $w=o$, the true `outside' word vector, and $w \neq o$, for all other words. Please write your answer in terms of $\by$, $\hat{\by}$, and $\bv_c$. In this subpart, you may use specific elements within these terms as well (such as $\by_1$, $\by_2$, $\dots$). Note that $\bu_w$ is a vector while $\by_1, \by_2, \dots$ are scalars. Show your work to receive full credit.
 
+\ifans{Rewrite \(J=-\bu_o^\top\bv_c+\log\sum_{w'}\exp(\bu_{w'}^\top\bv_c)\). Differentiating \(\log Z\) with respect to \(\bu_w\) yields \(\hat y_w\bv_c\). For \(w\neq o\) the first term does not depend on \(\bu_w\), so \(\partial J/\partial\bu_w=\hat y_w\bv_c=(\hat y_w-y_w)\bv_c\) since \(y_w=0\). For \(w=o\) the first term contributes \(-\bv_c\), hence \(\partial J/\partial\bu_o=(\hat y_o-1)\bv_c=(\hat y_o-y_o)\bv_c\) since \(y_o=1\). In both cases
+\[\frac{\partial J}{\partial\bu_w}=(\hat y_w-y_w)\bv_c.\]}
 
 \end{parts}
