@@ -50,8 +50,9 @@ Downloaded from `links.md`.
 
 ## 07-advanced-variants-of-rnns-attention
 
-- Learning long-term dependencies with gradient descent is difficult — _skipped: paywalled_
+- [Learning long-term dependencies with gradient descent is difficult](07-advanced-variants-of-rnns-attention/bengio-simard-frasconi-1994-long-term-dependencies.pdf) `(archived author copy, 314 KB)`
   - original: <https://ieeexplore.ieee.org/document/279181>
+  - archived source: <https://web.archive.org/web/20060623090159id_/http://research.microsoft.com/~patrice/PDF/long_term.pdf>
 - [On the difficulty of training Recurrent Neural Networks](07-advanced-variants-of-rnns-attention/1211.5063-on-the-difficulty-of-training-recurrent-neural-networks.pdf) `(cached, 611 KB)`
 - [Vanishing Gradients Jupyter Notebook](07-advanced-variants-of-rnns-attention/vanishing-gradients-jupyter-notebook.html) `(cached, 559 KB)`
 - [Attention Is All You Need](07-advanced-variants-of-rnns-attention/1706.03762-attention-is-all-you-need.pdf) `(cached, 2163 KB)`
@@ -76,6 +77,7 @@ Downloaded from `links.md`.
 - [Contextual Word Representations: A Contextual Introduction](10-pretraining/1902.06006-contextual-word-representations-a-contextual-introduction.pdf) `(cached, 292 KB)`
 - [The Illustrated BERT, ELMo, and co.](10-pretraining/the-illustrated-bert-elmo-and-co.html) `(cached, 34 KB)`
 - [Jurafsky and Martin Chapter 11 (Masked Language Models)](10-pretraining/jurafsky-and-martin-chapter-11-masked-language-models.pdf) `(cached, 556 KB)`
+- [Jurafsky and Martin Chapter 10 (Masked Language Models), official Aug 2025 archive](10-pretraining/jurafsky-and-martin-chapter-10-masked-language-models-2025.pdf) `(cached, 921 KB; content-equivalent target, chapter number differs)`
 - [colab run script](10-pretraining/colab-run-script-1vp_6RYYqM.ipynb) `(cached, 7 KB)`
 
 ## 11-post-training-rlhf-sft-dpo
@@ -141,4 +143,3 @@ Downloaded from `links.md`.
 - AOERC — _skipped: not a paper/reading_
   - original: <https://rec.stanford.edu/visit/locations/stanford-campus#aoerc>
 - [Printing guide](other/printing-guide-1J8-TVVvnd.pdf) `(cached, 83 KB)`
-

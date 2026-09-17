@@ -1,0 +1,740 @@
+CS224n: Natural Language Processing with Deep
+Learning 1                                                                           1
+                                                                                      Course Instructors: Christopher
+                                                                                     Manning, Richard Socher
+Lecture Notes: Part V
+Language Models, RNN, GRU and LSTM 2                                                 2
+                                                                                      Authors: Milad Mohammadi, Rohit
+                                                                                     Mundra, Richard Socher, Lisa Wang,
+Winter 2019                                                                          Amita Kamath
+
+
+Keyphrases: Language Models. RNN. Bi-directional RNN. Deep
+RNN. GRU. LSTM.
+
+
+1    Language Models
+
+1.1 Introduction
+Language models compute the probability of occurrence of a number
+of words in a particular sequence. The probability of a sequence of
+m words {w1 , ..., wm } is denoted as P(w1 , ..., wm ). Since the number
+of words coming before a word, wi , varies depending on its location
+in the input document, P(w1 , ..., wm ) is usually conditioned on a
+window of n previous words rather than all previous words:
+
+                      i=m                        i =m
+    P(w1 , ..., wm ) = ∏ P(wi |w1 , ..., wi−1 ) ≈ ∏ P(wi |wi−n , ..., wi−1 )   (1)
+                      i =1                       i =1
+
+   Equation 1 is especially useful for speech and translation systems
+when determining whether a word sequence is an accurate transla-
+tion of an input sentence. In existing language translation systems,
+for each phrase / sentence translation, the software generates a num-
+ber of alternative word sequences (e.g. {I have, I had, I has, me have, me
+had}) and scores them to identify the most likely translation sequence.
+   In machine translation, the model chooses the best word ordering
+for an input phrase by assigning a goodness score to each output
+word sequence alternative. To do so, the model may choose between
+different word ordering or word choice alternatives. It would achieve
+this objective by running all word sequence candidates through a
+probability function that assigns each a score. The sequence with
+the highest score is the output of the translation. For example, the
+machine would give a higher score to "the cat is small" compared
+to "small the is cat", and a higher score to "walking home after school"
+compared to "walking house after school".
+
+1.2 n-gram Language Models
+To compute the probabilities mentioned above, the count of each n-
+gram could be compared against the frequency of each word. This is
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 2
+
+called an n-gram Language Model. For instance, if the model takes
+bi-grams, the frequency of each bi-gram, calculated via combining a
+word with its previous word, would be divided by the frequency of
+the corresponding uni-gram. Equations 2 and 3 show this relation-
+ship for bigram and trigram models.
+
+                                          count(w1 , w2 )
+                       p ( w2 | w1 ) =                                  (2)
+                                            count(w1 )
+                                     count(w1 , w2 , w3 )
+                   p ( w3 | w1 , w2 ) =                                 (3)
+                                       count(w1 , w2 )
+    The relationship in Equation 3 focuses on making predictions
+based on a fixed window of context (i.e. the n previous words) used
+to predict the next word. But how long should the context be? In
+some cases, the window of past consecutive n words may not be suf-
+ficient to capture the context. For instance, consider the sentence "As
+the proctor started the clock, the students opened their         ". If the
+window only conditions on the previous three words "the students
+opened their", the probabilities calculated based on the corpus may
+suggest that the next word be "books" - however, if n had been large
+enough to include the "proctor" context, the probability might have
+suggested "exam".
+    This leads us to two main issues with n-gram Language Models:
+Sparsity and Storage.
+
+1. Sparsity problems with n-gram Language models
+   Sparsity problems with these models arise due to two issues.
+  Firstly, note the numerator of Equation 3. If w1 , w2 and w3 never
+  appear together in the corpus, the probability of w3 is 0. To solve
+  this, a small δ could be added to the count for each word in the
+  vocabulary. This is called smoothing.
+  Secondly, consider the denominator of Equation 3. If w1 and w2
+  never occurred together in the corpus, then no probability can be
+  calculated for w3 . To solve this, we could condition on w2 alone.
+  This is called backoff.
+  Increasing n makes sparsity problems worse. Typically, n ≤ 5.
+
+2. Storage problems with n-gram Language models
+   We know that we need to store the count for all n-grams we saw in
+   the corpus. As n increases (or the corpus size increases), the model
+   size increases as well.
+
+1.3 Window-based Neural Language Model
+The "curse of dimensionality" above was first tackled by Bengio et
+al in A Neural Probabilistic Language Model, which introduced the
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 3
+
+first large-scale deep learning for natural language processing model.
+This model learns a distributed representation of words, along with the
+probability function for word sequences expressed in terms of these
+representations. Figure 1 shows the corresponding neural network
+architecture. The input word vectors are used by both the hidden
+layer and the output layer.
+   Equation 4 represents Figure 1 and shows the parameters of the
+softmax() function, consisting of the standard tanh() function (i.e.
+the hidden layer) as well as the linear function, W (3) x + b(3) , that
+captures all the previous n input word vectors.
+
+          ŷ = softmax(W (2) tanh(W (1) x + b(1) ) + W (3) x + b(3) )          (4)
+Note that the weight matrix W (1) is applied to the word vectors (solid
+green arrows in Figure 1), W (2) is applied to the hidden layer (also                Figure 1: The first deep neural network
+                                                                                     architecture model for NLP presented
+solid green arrow) and W (3) is applied to the word vectors (dashed                  by Bengio et al.
+green arrows).
+   A simplified version of this model can be seen in Figure 2, where
+the blue layer signifies concatenated word embeddings for the input
+words: e = [e(1) ; e(2) ; e(3) ; e(4) ], the red layer signifies the hidden layer:
+h = f (We + b1 ), and the green output distribution is a softmax over
+the vocabulary: ŷ = softmax(Uh + b2 ).
+
+
+2   Recurrent Neural Networks (RNN)
+
+Unlike the conventional translation models, where only a finite win-
+dow of previous words would be considered for conditioning the
+language model, Recurrent Neural Networks (RNN) are capable of
+conditioning the model on all previous words in the corpus.
+   Figure 3 introduces the RNN architecture where each vertical rect-
+                                                                                     Figure 2: A simplified representation of
+angular box is a hidden layer at a time-step, t. Each such layer holds               Figure 1.
+a number of neurons, each of which performs a linear matrix oper-
+                                                                                                   yt−1             yt                 yt+1
+ation on its inputs followed by a non-linear operation (e.g. tanh()).
+                                                                                            ht−1               ht               ht+1
+At each time-step, there are two inputs to the hidden layer: the out-                                     W"              W"
+put of the previous layer ht−1 , and the input at that timestep xt . The
+former input is multiplied by a weight matrix W (hh) and the latter                  xt−1                 xt             xt+1
+by a weight matrix W (hx) to produce output features ht , which are
+multiplied with a weight matrix W (S) and run through a softmax
+over the vocabulary to obtain a prediction output ŷ of the next word                Figure 3: A Recurrent Neural Network
+(Equations 5 and 6). The inputs and outputs of each single neuron                    (RNN). Three time-steps are shown.
+
+are illustrated in Figure 4.
+
+                       ht = σ (W (hh) ht−1 + W (hx) x[t] )                     (5)
+
+
+                            ŷt = so f tmax (W (S) ht )                        (6)
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 4
+
+What is interesting here is that the same weights W (hh) and W (hx) are
+applied repeatedly at each timestep. Thus, the number of parameters
+the model has to learn is less, and most importantly, is independent
+of the length of the input sequence - thus defeating the curse of di-
+mensionality!
+   Below are the details associated with each parameter in the net-
+work:
+
+• x1 , ..., xt−1 , xt , xt+1 , ...x T : the word vectors corresponding to a cor-     Figure 4: The inputs and outputs to a
+  pus with T words.                                                                  neuron of a RNN
+
+
+• ht = σ (W (hh) ht−1 + W (hx) xt ): the relationship to compute the
+  hidden layer output features at each time-step t
+
+   – xt ∈ Rd : input word vector at time t.
+   – W hx ∈ RDh ×d : weights matrix used to condition the input word
+     vector, xt
+   – W hh ∈ RDh × Dh : weights matrix used to condition the output of
+     the previous time-step, ht−1
+   – ht−1 ∈ RDh : output of the non-linear function at the previous
+     time-step, t − 1. h0 ∈ RDh is an initialization vector for the
+     hidden layer at time-step t = 0.
+   – σ (): the non-linearity function (sigmoid here)
+
+• ŷt = so f tmax (W (S) ht ): the output probability distribution over the
+  vocabulary at each time-step t. Essentially, ŷt is the next predicted
+  word given the document context score so far (i.e. ht−1 ) and the
+  last observed word vector x (t) . Here, W (S) ∈ R|V |× Dh and ŷ ∈ R|V |
+  where |V | is the vocabulary.
+
+    An example of an RNN language model is shown in Figure 5.
+The notation in this image is slightly different: here, the equivalent
+of W (hh) is Wh , W (hx) is We , and W (S) is U. E converts word inputs
+x (t) to word embeddings e(t) . The final softmax over the vocabulary
+shows us the probability of various options for token x (5) , condi-
+tioned on all previous tokens. The input could be much longer than                   Figure 5: An RNN Language Model
+
+4-5 tokens.
+
+
+2.1 RNN Loss and Perplexity
+The loss function used in RNNs is often the cross entropy error in-
+troduced in earlier notes. Equation 7 shows this function as the sum
+over the entire vocabulary at time-step t.
+                                      |V |
+                        J (t) (θ ) = − ∑ yt,j × log(ŷt,j )                    (7)
+                                      j =1
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 5
+
+  The cross entropy error over a corpus of size T is:
+
+                                            |V |
+                   1 T (t)           1 T
+                   T t∑              T t∑  ∑ yt,j × log(ŷt,j )
+              J=         J ( θ ) = −                                        (8)
+                      =1                =1 j =1
+
+   Equation 9 is called the perplexity relationship; it is basically 2 to
+the power of the negative log probability of the cross entropy error
+function shown in Equation 8. Perplexity is a measure of confusion
+where lower values imply more confidence in predicting the next
+word in the sequence (compared to the ground truth outcome).
+
+                             Perplexity = 2 J                               (9)
+
+
+2.2 Advantages, Disadvantages and Applications of RNNs
+RNNs have several advantages:
+
+1. They can process input sequences of any length
+
+2. The model size does not increase for longer input sequence
+   lengths
+
+3. Computation for step t can (in theory) use information from many
+   steps back.
+
+4. The same weights are applied to every timestep of the input, so
+   there is symmetry in how inputs are processed
+
+  However, they also have some disadvantages:
+
+1. Computation is slow - because it is sequential, it cannot be paral-
+   lelized
+
+2. In practice, it is difficult to access information from many steps
+   back due to problems like vanishing and exploding gradients,
+   which we discuss in the following subsection
+
+   The amount of memory required to run a layer of RNN is pro-
+portional to the number of words in the corpus. We can consider a
+sentence as a minibatch, and a sentence with k words would have k
+word vectors to be stored in memory. Also, the RNN must maintain
+two pairs of W, b matrices. As aforementioned, while the size of W
+could be very large, it does not scale with the size of the corpus (un-
+like the traditional language models). For a RNN with 1000 recurrent
+layers, the matrix would be 1000 × 1000 regardless of the corpus size.
+   RNNs can be used for many tasks, such as tagging (e.g. part-of-
+speech, named entity recognition), sentence classification (e.g. senti-
+ment classification), and encoder modules (e.g. questiton answering,
+        cs224n: natural language processing with deep learning lecture notes: part v
+                                           language models, rnn, gru and lstm 6
+
+machine translation, and many other tasks). In the latter two applica-
+tions, we want a representation for the sentence, which we can obtain
+by taking the element-wise max or mean of all hidden states of the
+timesteps in that sentence.
+   Note: Figure 6 is an alternative representation of RNNs used in
+some publications. It represents the RNN hidden layer as a loop.
+
+
+2.3 Vanishing Gradient & Gradient Explosion Problems                                             ht
+Recurrent neural networks propagate weight matrices from one time-         Figure 6: The illustration of a RNN as a
+step to the next. Recall the goal of a RNN implementation is to en-        loop over time-steps
+able propagating context information through faraway time-steps.
+For example, consider the following two sentences:
+
+                             Sentence 1
+ "Jane walked into the room. John walked in too. Jane said hi to ___"
+
+                             Sentence 2
+  "Jane walked into the room. John walked in too. It was late in the
+ day, and everyone was walking home after a long day at work. Jane
+                           said hi to ___"
+
+
+In both sentences, given their context, one can tell the answer to both
+blank spots is most likely "John". It is important that the RNN predicts
+the next word as "John", the second person who has appeared several
+time-steps back in both contexts. Ideally, this should be possible given
+what we know about RNNs so far. In practice, however, it turns out
+RNNs are more likely to correctly predict the blank spot in Sentence
+1 than in Sentence 2. This is because during the back-propagation
+phase, the contribution of gradient values gradually vanishes as they
+propagate to earlier timesteps, as we will show below. Thus, for long
+sentences, the probability that "John" would be recognized as the next
+word reduces with the size of the context. Below, we discuss the math-
+ematical reasoning behind the vanishing gradient problem.
+   Consider Equations 5 and 6 at a time-step t; to compute the RNN
+error, dE/dW, we sum the error at each time-step. That is, dEt /dW for
+every time-step, t, is computed and accumulated.
+
+                                  T
+                            ∂E       ∂Et
+                               =∑                                   (10)
+                            ∂W  t =1
+                                     ∂W
+
+   The error for each time-step is computed through applying the
+chain rule differentiation to Equations 6 and 5; Equation 11 shows
+the corresponding differentiation. Notice dht /dhk refers to the partial
+        cs224n: natural language processing with deep learning lecture notes: part v
+                                           language models, rnn, gru and lstm 7
+
+derivative of ht with respect to all previous k time-steps.
+                                  t
+                          ∂Et        ∂Et ∂yt ∂ht ∂hk
+                              = ∑                                              (11)
+                          ∂W    k =1
+                                     ∂yt ∂ht ∂hk ∂W
+
+    Equation 12 shows the relationship to compute each dht /dhk ; this
+is simply a chain rule differentiation over all hidden layers within the
+[k, t] time interval.
+                     t     ∂h j       t
+            ∂ht
+                = ∏              = ∏ W T × diag[ f 0 ( jj−1 )]                 (12)
+            ∂hk  j = k +1
+                          ∂h j−1  j = k +1
+
+  Because h ∈ RDn , each ∂h j /∂h j−1 is the Jacobian matrix for h:
+                                         ∂h                       ∂h j,1 
+                                               j,1
+                                   ∂h j−1,1         .   .   .
+                                                                ∂h j−1,Dn 
+                                                                           
+                                   .                .                .    
+    ∂h j       ∂h j      ∂h j                                             
+          =[         ...        ]= .                    .            .        (13)
+                                                                          
+                                                                           
+   ∂h j−1    ∂h j−1,1 ∂h j−1,Dn                                           
+                                   .                        .        .    
+                                                                          
+                                   ∂h j,Dn                       ∂h j,Dn 
+                                                     .   .   .
+                                    ∂h j−1,1                     ∂h j−1,Dn
+
+   Putting Equations 10, 11, 12 together, we have the following rela-
+tionship.
+                        T    t            t    ∂h j ∂hk
+                ∂E              ∂Et ∂yt
+                   =∑ ∑                 ( ∏         )            (14)
+               ∂W     t =1 k =1
+                                ∂yt ∂ht j=k+1 ∂h j−1 ∂W
+
+   Equation 15 shows the norm of the Jacobian matrix relationship
+in Equation 13. Here, βW and β h represent the upper bound values
+for the two matrix norms. The norm of the partial gradient at each
+time-step, t, is therefore, calculated through the relationship shown in
+Equation 15.
+
+                  ∂h j
+             k          k≤k W T kk diag[ f 0 (h j−1 )] k≤ βW β h               (15)
+                 ∂h j−1
+  The norm of both matrices is calculated through taking their L2-
+norm. The norm of f 0 (h j−1 ) can only be as large as 1 given the sigmoid
+non-linearity function.
+
+                                 t     ∂h j
+                      ∂ht
+                  k       k=k ∏                k≤ ( βW β h )t−k                (16)
+                      ∂hk    j = k +1
+                                      ∂h j − 1
+
+   The exponential term ( βW β h )t−k can easily become a very small or
+large number when βW β h is much smaller or larger than 1 and t − k
+is sufficiently large. Recall a large t − k evaluates the cross entropy
+error due to faraway words. The contribution of faraway words to
+predicting the next word at time-step t diminishes when the gradient
+vanishes early on.
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 8
+
+   During experimentation, once the gradient value grows extremely
+large, it causes an overflow (i.e. NaN) which is easily detectable at
+runtime; this issue is called the Gradient Explosion Problem. When the
+gradient value goes to zero, however, it can go undetected while dras-
+tically reducing the learning quality of the model for far-away words
+in the corpus; this issue is called the Vanishing Gradient Problem. Due to
+vanishing gradients, we don’t know whether there is no dependency
+between steps t and t + n in the data, or we just cannot capture the
+true dependency due to this issue.
+   To gain practical intuition about the vanishing gradient problem,
+you may visit the following example website.
+
+
+2.4 Solution to the Exploding & Vanishing Gradients
+Now that we gained intuition about the nature of the vanishing gradi-
+ents problem and how it manifests itself in deep neural networks, let
+us focus on a simple and practical heuristic to solve these problems.
+   To solve the problem of exploding gradients, Thomas Mikolov first
+introduced a simple heuristic solution that clips gradients to a small
+number whenever they explode. That is, whenever they reach a cer-
+tain threshold, they are set back to a small number as shown in Algo-
+rithm 1.
+                                                                             Algorithm 1: Pseudo-code for norm clip-
+                                                                             ping in the gradients whenever they ex-
+         ∂E                                                                  plode
+  ĝ ←
+         ∂W
+  if k ĝ k≥ threshold then
+            threshold
+      ĝ ←            ĝ
+              k ĝ k
+  end if
+
+
+   Figure 7 visualizes the effect of gradient clipping. It shows the de-
+cision surface of a small recurrent neural network with respect to its
+W matrix and its bias terms, b. The model consists of a single unit
+of recurrent neural network running through a small number of time-
+steps; the solid arrows illustrate the training progress on each gradient                                 On the difficulty of training Recurrent Neural
+
+descent step. When the gradient descent model hits the high error wall                                                                       rithm should work
+                                                                                                                                             gradient is not th
+in the objective function, the gradient is pushed off to a far-away loca-                                                                    (a case for which
+tion on the decision surface. The clipping model produces the dashed                                                                         as the ratio betwe
+                                                                                                                                             still explode).
+line where it instead pulls back the error gradient to somewhere close                                                                       Our hypothesis co
+                                                                                                                                             cent success of th
+to the original gradient landscape.                                                                                                          to other second or
+   To solve the problem of vanishing gradients, we introduce two tech-                                                                       ferences between H
+                                                                                                                                             order algorithms.
+niques. The first technique is that instead of initializing W (hh) ran-      Figure 6. We plot the error surface of a single hidden unit
+                                                                                                                                             and hence can dea
+                                                                                                                                             not necessarily a
+domly, start off from an identity matrix initialization.                     recurrent network, highlighting the existence of high cur-
+                                                                             Figure
+                                                                             vature     7: Gradient
+                                                                                    walls.                explosion
+                                                                                             The solid lines             clipping
+                                                                                                             depicts standard trajectories
+                                                                                                                                             new estimate of
+                                                                                                                                             date step and can
+   The second technique is to use the Rectified Linear Units (ReLU) in-      that gradient descent might follow. Using dashed arrow
+                                                                             visualization
+                                                                             the diagram shows what would happen if the gradients is
+                                                                                                                                             curvature (such as
+                                                                                                                                             sis) while most ot
+                                                                             rescaled to a fixed size when its norm is above a threshold.
+stead of the sigmoid function. The derivative for the ReLU is either 0 or                                                                    sumption, i.e., av
+                                                                                                                                             steps.
+
+                                                                             explode so does the curvature along v, leading to a             3. Dealing wi
+                                                                             wall in the error surface, like the one seen in Fig. 6.            vanishing g
+                                                                             If this holds, then it gives us a simple solution to the        3.1. Previous so
+                                                                             exploding gradients problem depicted in Fig. 6.                 Using an L1 or L2
+                                                                             If both the gradient and the leading eigenvector of the         help with explodin
+                                                                             curvature are aligned with the exploding direction v, it        ters initialized wit
+                                                                             follows that the error surface has a steep wall perpen-         Wrec is probably
+                                                                             dicular to v (and consequently to the gradient). This           that the gradient c
+                                                                             means that when stochastic gradient descent (SGD)               tion found in secti
+                                                                             reaches the wall and does a gradient descent step, it           ensure that durin
+                                                                             will be forced to jump across the valley moving perpen-         exceeds 1. This a
+                                                                             dicular to the steep walls, possibly leaving the valley         ple regime (with a
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 9
+
+1. This way, gradients would flow through the neurons whose deriva-
+tive is 1 without getting attenuated while propagating back through
+time-steps.
+
+
+2.5 Deep Bidirectional RNNs
+So far, we have focused on RNNs that condition on past words to
+predict the next word in the sequence. It is possible to make predic-
+tions based on future words by having the RNN model read through
+the corpus backwards. Irsoy et al. shows a bi-directional deep neu-
+ral network; at each time-step, t, this network maintains two hidden
+layers, one for the left-to-right propagation and another for the right-
+to-left propagation. To maintain two hidden layers at any time, this
+network consumes twice as much memory space for its weight and
+bias parameters. The final classification result, yˆt , is generated through
+combining the score results produced by both RNN hidden layers. Fig-
+ure 8 shows the bi-directional network architecture, and Equations 17           Bidirectionality
+and 18 show the mathematical formulation behind setting up the bi-             y
+directional RNN hidden layer. The only difference between these two                                                   !        !"
+                                                                                                                                !     !"
+relationships is in the direction of recursing through the corpus. Equa-                                              h t = f (W xt +V
+                                                                                                                      !        !"     !"
+tion 19 shows the classification relationship used for predicting the          h                                      h t = f (W xt +V
+                                                                                                                                  ! !
+next word via summarizing past and future word representations.                                                       yt = g(U[h t ;h t ]
+                     −
+                     →        −→       →−
+                                       − →       −→                            x
+                     h t = f ( W x t + V h t −1 + b )                  (17)
+                                                                                     ! !
+                                                                                h = [h;h ] now represents (summarizes) the past and
+                                                                               Figure 8: A bi-directional RNN model
+                     ←
+                     −        ←−       −←
+                                       ← −       ←−                             around a single token.
+                     h t = f ( W x t + V h t +1 + b )                  (18)
+
+                                          −
+                                          → ←    −
+                  ŷt = g(Uht + c) = g(U [ h t ; h t ] + c)            (19)
+   RNNs can also be multi-layered. Figure 9 shows a multi-layer bi-
+directional RNN where each lower layer feeds the next layer. As shown
+in this figure, in this network architecture, at time-step t each interme-
+diate neuron receives one set of parameters from the previous time-
+step (in the same RNN layer), and two sets of parameters from the
+previous RNN hidden layer; one input comes from the left-to-right                  Going Deep
+RNN and the other from the right-to-left RNN.                                      y
+   To construct a Deep RNN with L layers, the above relationships are
+modified to the relationships in Equations 20 and 21 where the input
+to each intermediate neuron at level i is the output of the RNN at
+                                                                               h (3)                                  ! (i)    !"
+                                                                                                                                ! (i)
+                                                                                                                      h t = f (W ht(i−1
+layer i − 1 at the same time-step, t. The output, ŷ, at each time-step is                                            ! (i)    !" (i)
+the result of propagating input parameters through all hidden layers           h (2)                                  h t = f (W ht(i−1
+(Equation 22).                                                                                                                    ! (L ) !
+                                                                                                                      yt = g(U[h t ;h
+                                                                                h (1)
+               −
+               → (i )   −→ ( i −1) −  → −    → (i )   −→
+               h t = f ( W (i ) h t + V ( i ) h t −1 + b ( i ) )       (20)
+                                                                                   x
+                                                                                   Each memory layer passes an intermediate seq
+                                                                                 representation
+                                                                               Figure 9: A deep    to  the next.
+                                                                                                bi-directional RNN
+                                                                               with three RNN layers.
+        cs224n: natural language processing with deep learning lecture notes: part v
+                                          language models, rnn, gru and lstm 10
+
+
+              ←
+              − (i )   ←− ( i −1) ←  − ←     − (i )  ←−
+              h t = f ( W (i ) h t + V ( i ) h t +1 + b ( i ) )                     (21)
+
+                                       −
+                                       →( L) ←−( L)
+               ŷt = g(Uht + c) = g(U [ h t ; h t ] + c)                            (22)
+
+
+2.6 Application: RNN Translation Model
+Traditional translation models are quite complex; they consist of nu-
+merous machine learning algorithms applied to different stages of the
+language translation pipeline. In this section, we discuss the potential
+for adopting RNNs as a replacement to traditional translation mod-
+ules. Consider the RNN example model shown in Figure 10; here,
+the German phrase Echt dicke Kiste is translated to Awesome sauce. The                                                  Awesome	     	  	  	  	  	  	  	  
+                                                                                                                        sauce	  
+                                                                                                                          y 1            y2
+first three hidden layer time-steps encode the German language words
+into some language word features (h3 ). The last two time-steps decode                          h1       h2        h3
+                                                                                                     W	       W	  
+h3 into English word outputs. Equation 23 shows the relationship for
+                                                                                           x1        x2       x3
+the Encoder stage and Equations 24 and 25 show the equation for the
+Decoder stage.
+                                                                                           Figure 10: A RNN-based translation
+                                                 (hh)                (hx )                 model. The first three RNN hidden
+              h t = φ ( h t − 1 , x t ) = f (W          h t −1 + W           xt )   (23)
+                                                                                           layers belong to the source language
+                                                                                           model encoder, and the last two belong
+                                                                                           to the destination language model
+                       ht = φ(ht−1 ) = f (W (hh) ht−1 )                             (24)   decoder.
+
+
+                              yt = so f tmax (W (S) ht )                            (25)
+   One may naively assume this RNN model along with the cross-
+entropy function shown in Equation 26 can produce high-accuracy
+translation results. In practice, however, several extensions are to be
+added to the model to improve its translation accuracy performance.
+
+                                1 N
+                                N n∑
+                        max           log pθ (y(n) | x (n) )                        (26)
+                          θ        =1
+
+Extension I: train different RNN weights for encoding and decoding.
+This decouples the two units and allows for more accuracy prediction
+of each of the two RNN modules. This means the φ() functions in
+Equations 23 and 24 would have different W (hh) matrices.
+
+Extension II: compute every hidden state in the decoder using three
+different inputs:
+
+• The previous hidden state (standard)                                                     Figure 11: Language model with
+                                                                                           three inputs to each decoder neuron:
+• Last hidden layer of the encoder (c = h T in Figure 11)                                  (ht−1 , c, yt−1 )
+        cs224n: natural language processing with deep learning lecture notes: part v
+                                          language models, rnn, gru and lstm 11
+
+• Previous predicted output word, ŷt−1
+
+    Combining the above three inputs transforms the φ function in the
+decoder function of Equation 24 to the one in Equation 27. Figure 11
+illustrates this model.
+
+                                 ht = φ(ht−1 , c, yt−1 )                    (27)
+
+Extension III: train deep recurrent neural networks using multiple
+RNN layers as discussed earlier in this chapter. Deeper layers often
+improve prediction accuracy due to their higher learning capacity. Of
+course, this implies a large training corpus must be used to train the
+model.
+
+Extension IV: train bi-directional encoders to improve accuracy simi-
+lar to what was discussed earlier in this chapter.
+
+Extension V: given a word sequence A B C in German whose transla-
+tion is X Y in English, instead of training the RNN using A B C → X
+Y, train it using C B A → X Y. The intutition behind this technique is
+that A is more likely to be translated to X. Thus, given the vanishing
+gradient problem discussed earlier, reversing the order of the input
+words can help reduce the error rate in generating the output phrase.
+
+
+3   Gated Recurrent Units
+
+Beyond the extensions discussed so far, RNNs have been found to per-
+form better with the use of more complex units for activation. So far,
+we have discussed methods that transition from hidden state ht−1 to
+ht using an affine transformation and a point-wise nonlinearity. Here,
+we discuss the use of a gated activation function thereby modifying
+the RNN architecture. What motivates this? Well, although RNNs
+can theoretically capture long-term dependencies, they are very hard
+to actually train to do this. Gated recurrent units are designed in a
+manner to have more persistent memory thereby making it easier for
+RNNs to capture long-term dependencies. Let us see mathematically
+how a GRU uses ht−1 and xt to generate the next hidden state ht . We
+will then dive into the intuition of this architecture.
+
+        z t = σ (W ( z ) x t + U ( z ) h t − 1 )            (Update gate)
+        r t = σ (W ( r ) x t + U ( r ) h t − 1 )             (Reset gate)
+        h̃t = tanh(rt ◦ Uht−1 + Wxt )                      (New memory)
+        ht = (1 − zt ) ◦ h̃t + zt ◦ ht−1                   (Hidden state)
+         cs224n: natural language processing with deep learning lecture notes: part v
+                                           language models, rnn, gru and lstm 12
+
+The above equations can be thought of a GRU’s four fundamental op-
+erational stages and they have intuitive interpretations that make this
+model much more intellectually satisfying (see Figure 12):
+1. New memory generation: A new memory h̃t is the consolidation of
+   a new input word xt with the past hidden state ht−1 . Anthropomor-
+   phically, this stage is the one who knows the recipe of combining a
+   newly observed word with the past hidden state ht−1 to summarize
+   this new word in light of the contextual past as the vector h̃t .
+
+2. Reset Gate: The reset signal rt is responsible for determining how
+   important ht−1 is to the summarization h̃t . The reset gate has the
+   ability to completely diminish past hidden state if it finds that ht−1
+   is irrelevant to the computation of the new memory.
+
+3. Update Gate: The update signal zt is responsible for determining
+   how much of ht−1 should be carried forward to the next state. For
+   instance, if zt ≈ 1, then ht−1 is almost entirely copied out to ht .
+   Conversely, if zt ≈ 0, then mostly the new memory h̃t is forwarded
+   to the next hidden state.
+
+4. Hidden state: The hidden state ht is finally generated using the
+   past hidden input ht−1 and the new memory generated h̃t with the
+   advice of the update gate.
+
+
+
+
+                                                                                   Figure 12: The detailed internals of a
+   It is important to note that to train a GRU, we need to learn all               GRU
+
+the different parameters: W, U, W (r) , U (r) , W (z) , U (z) . These follow the
+same backpropagation procedure we have seen in the past.
+          cs224n: natural language processing with deep learning lecture notes: part v
+                                            language models, rnn, gru and lstm 13
+
+4   Long-Short-Term-Memories
+
+Long-Short-Term-Memories are another type of complex activation unit
+that differ a little from GRUs. The motivation for using these is similar
+to those for GRUs however the architecture of such units does differ.
+Let us first take a look at the mathematical formulation of LSTM units
+before diving into the intuition behind this design:
+
+      i t = σ (W ( i ) x t + U ( i ) h t − 1 )                   (Input gate)
+      f t = σ (W ( f ) x t + U ( f ) h t − 1 )                  (Forget gate)
+                    (o )            (o )
+     o t = σ (W            xt + U          h t −1 )   (Output/Exposure gate)
+     c̃t = tanh(W (c) xt + U (c) ht−1 )                   (New memory cell)
+     ct = f t ◦ ct−1 + it ◦ c̃t                           (Final memory cell)
+     ht = ot ◦ tanh(ct )
+
+
+
+
+                                                                                Figure 13: The detailed internals of a
+                                                                                LSTM
+        cs224n: natural language processing with deep learning lecture notes: part v
+                                          language models, rnn, gru and lstm 14
+
+   We can gain intuition of the structure of an LSTM by thinking of its
+architecture as the following stages:
+
+1. New memory generation: This stage is analogous to the new mem-
+   ory generation stage we saw in GRUs. We essentially use the input
+   word xt and the past hidden state ht−1 to generate a new memory
+   c̃t which includes aspects of the new word x (t) .
+
+2. Input Gate: We see that the new memory generation stage doesn’t
+   check if the new word is even important before generating the new
+   memory – this is exactly the input gate’s function. The input gate
+   uses the input word and the past hidden state to determine whether
+   or not the input is worth preserving and thus is used to gate the new
+   memory. It thus produces it as an indicator of this information.
+
+3. Forget Gate: This gate is similar to the input gate except that it
+   does not make a determination of usefulness of the input word –
+   instead it makes an assessment on whether the past memory cell is
+   useful for the computation of the current memory cell. Thus, the
+   forget gate looks at the input word and the past hidden state and
+   produces f t .
+
+4. Final memory generation: This stage first takes the advice of the
+   forget gate f t and accordingly forgets the past memory ct−1 . Sim-
+   ilarly, it takes the advice of the input gate it and accordingly gates
+   the new memory c̃t . It then sums these two results to produce the
+   final memory ct .
+
+5. Output/Exposure Gate: This is a gate that does not explicitly exist
+   in GRUs. It’s purpose is to separate the final memory from the
+   hidden state. The final memory ct contains a lot of information that
+   is not necessarily required to be saved in the hidden state. Hidden
+   states are used in every single gate of an LSTM and thus, this gate
+   makes the assessment regarding what parts of the memory ct needs
+   to be exposed/present in the hidden state ht . The signal it produces
+   to indicate this is ot and this is used to gate the point-wise tanh of
+   the memory.
+
