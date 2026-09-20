@@ -1,0 +1,56 @@
+{
+  "archive_id": "submission_baseline",
+  "purpose": "Preserve evidence for the assignment submission run without replacing it in later experiments.",
+  "git_commit_at_archive_time": "d1183ef6b92423a260cff9c0a1bbdb0cd5bc76cc",
+  "git_branch_at_archive_time": "a2-auto-research",
+  "seed": "unknown",
+  "metrics_from_terminal_log": {
+    "debug": {
+      "final_train_loss": 0.15403915025914708,
+      "best_dev_uas_percent": 70.62,
+      "best_epoch": 10,
+      "note": "Terminal log from python run.py -d; checkpoint mapping unconfirmed"
+    },
+    "full_submission": {
+      "final_train_loss": 0.06676933261690847,
+      "best_dev_uas_percent": 88.60,
+      "best_epoch": 8,
+      "test_uas_percent": 89.03,
+      "note": "Terminal log from python run.py without -d"
+    }
+  },
+  "checkpoint_inventory": [
+    {
+      "run_dir": "results/20260921_021003",
+      "model_weights_bytes": 2477187,
+      "mtime": "2026-09-21T02:10:29",
+      "vocab_size_guess": "debug",
+      "log_association": "unconfirmed"
+    },
+    {
+      "run_dir": "results/20260921_021137",
+      "model_weights_bytes": 2477187,
+      "mtime": "2026-09-21T02:12:08",
+      "vocab_size_guess": "debug",
+      "log_association": "unconfirmed"
+    },
+    {
+      "run_dir": "results/20260921_021244",
+      "model_weights_bytes": 9373379,
+      "mtime": "2026-09-21T02:27:57",
+      "vocab_size_guess": "full",
+      "log_association": "confirmed_by_file_size",
+      "submission_binding": {
+        "best_dev_uas_percent": 88.60,
+        "test_uas_percent": 89.03,
+        "final_train_loss_epoch_10": 0.06676933261690847,
+        "best_epoch": 8
+      }
+    }
+  ],
+  "association_notes": [
+    "All three archived checkpoints have seed unknown; do not record seed 42 for them.",
+    "Two debug-sized checkpoints cannot be uniquely matched to a specific debug terminal log without re-evaluation.",
+    "The full-sized checkpoint is uniquely identified by file size and timing relative to the full terminal run."
+  ]
+}

@@ -27,3 +27,7 @@ _metadata/download.log
 
 # macOS noise
 .DS_Store
+
+# A2 experiment artifacts (keep manifests/logs, ignore large binaries)
+assignments/a2/student/results/**/*.weights
+assignments/a2/student/results/**/parser_bundle.pkl
