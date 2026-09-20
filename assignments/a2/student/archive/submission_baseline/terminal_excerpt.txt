@@ -1,0 +1,19 @@
+Source: local terminal session in assignments/a2/student
+Command sequence: python run.py -d ; python run.py
+
+Debug run (final epoch):
+Average Train Loss: 0.15403915025914708
+- dev UAS: 70.62
+
+Full submission run highlights:
+Epoch 8 out of 10
+Average Train Loss: 0.07305257120754295
+- dev UAS: 88.60
+New best dev UAS! Saving model.
+
+Epoch 10 out of 10
+Average Train Loss: 0.06676933261690847
+- dev UAS: 88.52
+
+TESTING
+- test UAS: 89.03
