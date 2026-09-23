@@ -1,0 +1,12 @@
+Please install official-Grok-first quota failover from this Mac using local-exec, then run it in the sandbox:
+
+bash /Users/xiaohufeng/Documents/cs224/tools/grok-bot-quota-failover/install.sh
+
+That script uses grok-bot-setup. Default provider is adapters use cursor (built-in Grok / Cursor included quota). When that quota is exhausted it runs adapters use openai-oauth --model gpt-6-luna. After the weekly reset it switches back to cursor.
+
+Do not use adapters use grok-session.
+
+After install:
+- "switch to Codex" / "quota is gone" → ~/.grok-bot-quota-failover/bin/use-codex or the copy next to install.sh
+- "switch back to official" → bin/use-stock
+- status → bin/status

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+DIR="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=../lib.sh
+source "$DIR/lib.sh"
+
+echo "failover dir: $DIR"
+echo "sandbox: $(in_sandbox && echo yes || echo no)"
+echo "desired: $(cat "$DESIRED_FILE" 2>/dev/null || echo unset)"
+echo "env provider: $(current_provider || echo none)"
+if bin="$(adapters_bin)"; then
+  echo "adapters: $bin"
+  "$bin" status || true
+else
+  echo "adapters: not installed here"
+fi
+echo "usage:"
+python3 "$DIR/fetch_usage.py"
+echo
+echo "state:"
+cat "$STATE_FILE" 2>/dev/null || echo "{}"
+echo
+echo "notify log (last 5):"
+tail -n 5 "$FAILOVER_DIR/notify.log" 2>/dev/null || echo "(empty)"

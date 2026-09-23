@@ -1,0 +1,6 @@
+logs/
+state.json
+desired-mode
+notify.log
+kit.tgz
+*.log

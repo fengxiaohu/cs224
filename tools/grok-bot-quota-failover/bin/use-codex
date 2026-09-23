@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+DIR="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=../lib.sh
+source "$DIR/lib.sh"
+
+echo codex >"$DESIRED_FILE"
+bin="$(adapters_bin)" || {
+  log "adapters CLI not on this machine; desired-mode=codex (run install.sh inside Grok Bot sandbox)"
+  notify "Want Codex, but adapters is not on this machine. Run install.sh / use-codex in the Grok Bot sandbox."
+  exit 0
+}
+log "switching to Codex openai-oauth model=$CODEX_MODEL"
+"$bin" start openai-oauth
+"$bin" use openai-oauth --model "$CODEX_MODEL"
+write_state mode=codex last_action=use-codex model="$CODEX_MODEL"
+notify "Official quota is exhausted; switched to Codex ($CODEX_MODEL). In-flight work may stop when the host restarts."
+"$bin" status || true
