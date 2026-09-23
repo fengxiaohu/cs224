@@ -1,0 +1,13 @@
+{
+  "attention_type": "multiplicative",
+  "train_iter": 400,
+  "train_loss": 6.370812291102448,
+  "last_window_train_loss": 5.879681138629927,
+  "dev_perplexity": 331.2075850991353,
+  "embed_size": 256,
+  "hidden_size": 256,
+  "seed": 0,
+  "lr": 0.0005,
+  "dropout": 0.3,
+  "batch_size": 32
+}
