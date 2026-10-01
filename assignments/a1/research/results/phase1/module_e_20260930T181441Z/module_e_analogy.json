@@ -1,0 +1,692 @@
+{
+  "results": [
+    {
+      "relation": "country_capital",
+      "offset_type": "single",
+      "split": "test",
+      "a": "england",
+      "b": "london",
+      "c": "china",
+      "gold": "beijing",
+      "rank": 1,
+      "top5": [
+        "beijing",
+        "shanghai",
+        "chinese",
+        "taipei",
+        "guangzhou"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "single",
+      "split": "test",
+      "a": "spain",
+      "b": "madrid",
+      "c": "russia",
+      "gold": "moscow",
+      "rank": 1,
+      "top5": [
+        "moscow",
+        "russian",
+        "kremlin",
+        "putin",
+        "kiev"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "single",
+      "split": "test",
+      "a": "canada",
+      "b": "ottawa",
+      "c": "egypt",
+      "gold": "cairo",
+      "rank": 1,
+      "top5": [
+        "cairo",
+        "egyptian",
+        "mubarak",
+        "amman",
+        "hosni"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "single",
+      "split": "test",
+      "a": "brazil",
+      "b": "brasilia",
+      "c": "india",
+      "gold": "delhi",
+      "rank": 1,
+      "top5": [
+        "delhi",
+        "mumbai",
+        "indian",
+        "bombay",
+        "calcutta"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "average",
+      "split": "test",
+      "a": "england",
+      "b": "london",
+      "c": "china",
+      "gold": "beijing",
+      "rank": 1,
+      "top5": [
+        "beijing",
+        "shanghai",
+        "chinese",
+        "taipei",
+        "guangzhou"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "average",
+      "split": "test",
+      "a": "spain",
+      "b": "madrid",
+      "c": "russia",
+      "gold": "moscow",
+      "rank": 1,
+      "top5": [
+        "moscow",
+        "russian",
+        "kremlin",
+        "putin",
+        "kiev"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "average",
+      "split": "test",
+      "a": "canada",
+      "b": "ottawa",
+      "c": "egypt",
+      "gold": "cairo",
+      "rank": 1,
+      "top5": [
+        "cairo",
+        "egyptian",
+        "mubarak",
+        "hosni",
+        "amman"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "country_capital",
+      "offset_type": "average",
+      "split": "test",
+      "a": "brazil",
+      "b": "brasilia",
+      "c": "india",
+      "gold": "delhi",
+      "rank": 1,
+      "top5": [
+        "delhi",
+        "indian",
+        "mumbai",
+        "calcutta",
+        "bombay"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "single",
+      "split": "test",
+      "a": "bird",
+      "b": "birds",
+      "c": "tree",
+      "gold": "trees",
+      "rank": 1,
+      "top5": [
+        "trees",
+        "shrubs",
+        "garden",
+        "gardens",
+        "bushes"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "single",
+      "split": "test",
+      "a": "house",
+      "b": "houses",
+      "c": "child",
+      "gold": "children",
+      "rank": 1,
+      "top5": [
+        "children",
+        "mothers",
+        "parents",
+        "infants",
+        "babies"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "single",
+      "split": "test",
+      "a": "mouse",
+      "b": "mice",
+      "c": "foot",
+      "gold": "feet",
+      "rank": 1,
+      "top5": [
+        "feet",
+        "4,000-square",
+        "3,000-square",
+        "10,000-square",
+        "6,000-square"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "single",
+      "split": "test",
+      "a": "man",
+      "b": "men",
+      "c": "woman",
+      "gold": "women",
+      "rank": 1,
+      "top5": [
+        "women",
+        "pregnant",
+        "mother",
+        "children",
+        "young"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "average",
+      "split": "test",
+      "a": "bird",
+      "b": "birds",
+      "c": "tree",
+      "gold": "trees",
+      "rank": 1,
+      "top5": [
+        "trees",
+        "shrubs",
+        "pine",
+        "saplings",
+        "branches"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "average",
+      "split": "test",
+      "a": "house",
+      "b": "houses",
+      "c": "child",
+      "gold": "children",
+      "rank": 1,
+      "top5": [
+        "children",
+        "parents",
+        "mothers",
+        "girls",
+        "babies"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "average",
+      "split": "test",
+      "a": "mouse",
+      "b": "mice",
+      "c": "foot",
+      "gold": "feet",
+      "rank": 1,
+      "top5": [
+        "feet",
+        "meters",
+        "square",
+        "3,000-square",
+        "10,000-square"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "singular_plural",
+      "offset_type": "average",
+      "split": "test",
+      "a": "man",
+      "b": "men",
+      "c": "woman",
+      "gold": "women",
+      "rank": 1,
+      "top5": [
+        "women",
+        "mother",
+        "girl",
+        "pregnant",
+        "she"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "single",
+      "split": "test",
+      "a": "high",
+      "b": "higher",
+      "c": "low",
+      "gold": "lower",
+      "rank": 1,
+      "top5": [
+        "lower",
+        "lowest",
+        "rate",
+        "levels",
+        "rates"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "single",
+      "split": "test",
+      "a": "long",
+      "b": "longer",
+      "c": "short",
+      "gold": "shorter",
+      "rank": 1,
+      "top5": [
+        "shorter",
+        "faster",
+        "length",
+        "than",
+        "less"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "single",
+      "split": "test",
+      "a": "young",
+      "b": "younger",
+      "c": "old",
+      "gold": "older",
+      "rank": 1,
+      "top5": [
+        "older",
+        "years",
+        "36-year",
+        "24-year",
+        "22-year"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "single",
+      "split": "test",
+      "a": "strong",
+      "b": "stronger",
+      "c": "weak",
+      "gold": "weaker",
+      "rank": 1,
+      "top5": [
+        "weaker",
+        "sluggish",
+        "weakening",
+        "weakened",
+        "weaken"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "average",
+      "split": "test",
+      "a": "high",
+      "b": "higher",
+      "c": "low",
+      "gold": "lower",
+      "rank": 1,
+      "top5": [
+        "lower",
+        "lowest",
+        "levels",
+        "rate",
+        "significantly"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "average",
+      "split": "test",
+      "a": "long",
+      "b": "longer",
+      "c": "short",
+      "gold": "shorter",
+      "rank": 1,
+      "top5": [
+        "shorter",
+        "length",
+        "than",
+        "faster",
+        "slower"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "average",
+      "split": "test",
+      "a": "young",
+      "b": "younger",
+      "c": "old",
+      "gold": "older",
+      "rank": 1,
+      "top5": [
+        "older",
+        "22-year",
+        "24-year",
+        "35-year",
+        "34-year"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "adjective_comparative",
+      "offset_type": "average",
+      "split": "test",
+      "a": "strong",
+      "b": "stronger",
+      "c": "weak",
+      "gold": "weaker",
+      "rank": 1,
+      "top5": [
+        "weaker",
+        "weakening",
+        "sluggish",
+        "weakened",
+        "slower"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "single",
+      "split": "test",
+      "a": "man",
+      "b": "grandfather",
+      "c": "woman",
+      "gold": "grandmother",
+      "rank": 18,
+      "top5": [
+        "daughter",
+        "brother",
+        "niece",
+        "wife",
+        "mother"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "single",
+      "split": "test",
+      "a": "man",
+      "b": "father",
+      "c": "woman",
+      "gold": "mother",
+      "rank": 5,
+      "top5": [
+        "daughter",
+        "brother",
+        "niece",
+        "wife",
+        "mother"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "single",
+      "split": "test",
+      "a": "boy",
+      "b": "son",
+      "c": "girl",
+      "gold": "daughter",
+      "rank": 1,
+      "top5": [
+        "daughter",
+        "brother",
+        "niece",
+        "sister",
+        "siblings"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "single",
+      "split": "test",
+      "a": "uncle",
+      "b": "nephew",
+      "c": "aunt",
+      "gold": "niece",
+      "rank": 1,
+      "top5": [
+        "niece",
+        "cousin",
+        "sister-in-law",
+        "siblings",
+        "brother-in-law"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "average",
+      "split": "test",
+      "a": "man",
+      "b": "grandfather",
+      "c": "woman",
+      "gold": "grandmother",
+      "rank": 11,
+      "top5": [
+        "daughter",
+        "mother",
+        "wife",
+        "sister",
+        "girl"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "average",
+      "split": "test",
+      "a": "man",
+      "b": "father",
+      "c": "woman",
+      "gold": "mother",
+      "rank": 2,
+      "top5": [
+        "daughter",
+        "mother",
+        "wife",
+        "sister",
+        "girl"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "average",
+      "split": "test",
+      "a": "boy",
+      "b": "son",
+      "c": "girl",
+      "gold": "daughter",
+      "rank": 1,
+      "top5": [
+        "daughter",
+        "sister",
+        "girls",
+        "daughters",
+        "niece"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "relation": "family",
+      "offset_type": "average",
+      "split": "test",
+      "a": "uncle",
+      "b": "nephew",
+      "c": "aunt",
+      "gold": "niece",
+      "rank": 1,
+      "top5": [
+        "niece",
+        "grandmother",
+        "sister",
+        "granddaughter",
+        "siblings"
+      ],
+      "status": "evaluable"
+    }
+  ],
+  "summary": {
+    "country_capital_single": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "country_capital_average": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "singular_plural_single": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "singular_plural_average": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "adjective_comparative_single": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "adjective_comparative_average": {
+      "top1_accuracy": 1.0,
+      "top5_accuracy": 1.0,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 4,
+      "top5_hits": 4
+    },
+    "family_single": {
+      "top1_accuracy": 0.5,
+      "top5_accuracy": 0.75,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 2,
+      "top5_hits": 3
+    },
+    "family_average": {
+      "top1_accuracy": 0.5,
+      "top5_accuracy": 0.75,
+      "n_evaluable": 4,
+      "n_oov": 0,
+      "n_other_unevaluable": 0,
+      "top1_hits": 2,
+      "top5_hits": 3
+    }
+  },
+  "failure_cases": [
+    {
+      "name": "hand_glove_foot",
+      "description": "Assignment known failure: hand:glove :: foot:sock",
+      "a": "hand",
+      "b": "glove",
+      "c": "foot",
+      "gold": "sock",
+      "offset_from": "family",
+      "rank": 20528,
+      "top5": [
+        "brother",
+        "cousin",
+        "nephew",
+        "son",
+        "eldest"
+      ],
+      "status": "evaluable"
+    },
+    {
+      "name": "dog_bark_cat_meow",
+      "description": "Polysemy: bark pulls toward tree bark",
+      "a": "dog",
+      "b": "bark",
+      "c": "cat",
+      "gold": "meow",
+      "offset_from": "singular_plural",
+      "rank": 582,
+      "top5": [
+        "cats",
+        "dogs",
+        "animals",
+        "pets",
+        "rabbits"
+      ],
+      "status": "evaluable"
+    }
+  ]
+}

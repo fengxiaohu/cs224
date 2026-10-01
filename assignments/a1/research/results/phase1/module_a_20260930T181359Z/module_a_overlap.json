@@ -1,0 +1,80 @@
+{
+  "raw_svd": {
+    "seed_1_vs_0": {
+      "movie": 1.0,
+      "book": 1.0,
+      "mysterious": 1.0,
+      "story": 1.0,
+      "fascinating": 1.0,
+      "good": 1.0,
+      "interesting": 1.0,
+      "large": 1.0,
+      "massive": 1.0,
+      "huge": 1.0
+    },
+    "seed_2_vs_0": {
+      "movie": 1.0,
+      "book": 1.0,
+      "mysterious": 1.0,
+      "story": 1.0,
+      "fascinating": 1.0,
+      "good": 1.0,
+      "interesting": 1.0,
+      "large": 1.0,
+      "massive": 1.0,
+      "huge": 1.0
+    }
+  },
+  "ppmi_svd": {
+    "seed_1_vs_0": {
+      "movie": 0.9,
+      "book": 0.5,
+      "mysterious": 0.7,
+      "story": 0.7,
+      "fascinating": 0.7,
+      "good": 0.9,
+      "interesting": 0.9,
+      "large": 0.8,
+      "massive": 0.6,
+      "huge": 0.5
+    },
+    "seed_2_vs_0": {
+      "movie": 0.9,
+      "book": 0.7,
+      "mysterious": 0.8,
+      "story": 0.7,
+      "fascinating": 0.5,
+      "good": 0.7,
+      "interesting": 1.0,
+      "large": 0.5,
+      "massive": 0.6,
+      "huge": 0.5
+    }
+  },
+  "ppmi_cds_svd": {
+    "seed_1_vs_0": {
+      "movie": 0.8,
+      "book": 0.9,
+      "mysterious": 0.8,
+      "story": 0.9,
+      "fascinating": 0.8,
+      "good": 0.9,
+      "interesting": 0.7,
+      "large": 0.8,
+      "massive": 0.5,
+      "huge": 0.7
+    },
+    "seed_2_vs_0": {
+      "movie": 0.9,
+      "book": 0.9,
+      "mysterious": 0.8,
+      "story": 0.9,
+      "fascinating": 0.7,
+      "good": 0.9,
+      "interesting": 0.8,
+      "large": 0.7,
+      "massive": 0.7,
+      "huge": 0.9
+    }
+  }
+}

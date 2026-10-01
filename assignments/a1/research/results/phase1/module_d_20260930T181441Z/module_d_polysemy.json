@@ -1,0 +1,1562 @@
+{
+  "bank": {
+    "in_imdb_subset_count": 45,
+    "top10": [
+      [
+        "banks",
+        0.7625691294670105
+      ],
+      [
+        "banking",
+        0.6818838119506836
+      ],
+      [
+        "central",
+        0.6283639073371887
+      ],
+      [
+        "financial",
+        0.6166563034057617
+      ],
+      [
+        "credit",
+        0.6049751043319702
+      ],
+      [
+        "lending",
+        0.5980608463287354
+      ],
+      [
+        "monetary",
+        0.5963003039360046
+      ],
+      [
+        "bankers",
+        0.5913101434707642
+      ],
+      [
+        "loans",
+        0.5802940130233765
+      ],
+      [
+        "investment",
+        0.574020266532898
+      ]
+    ],
+    "top30": [
+      [
+        "banks",
+        0.7625691294670105
+      ],
+      [
+        "banking",
+        0.6818838119506836
+      ],
+      [
+        "central",
+        0.6283639073371887
+      ],
+      [
+        "financial",
+        0.6166563034057617
+      ],
+      [
+        "credit",
+        0.6049751043319702
+      ],
+      [
+        "lending",
+        0.5980608463287354
+      ],
+      [
+        "monetary",
+        0.5963003039360046
+      ],
+      [
+        "bankers",
+        0.5913101434707642
+      ],
+      [
+        "loans",
+        0.5802940130233765
+      ],
+      [
+        "investment",
+        0.574020266532898
+      ],
+      [
+        "securities",
+        0.5509618520736694
+      ],
+      [
+        "funds",
+        0.5430683493614197
+      ],
+      [
+        "finance",
+        0.5417402386665344
+      ],
+      [
+        "lender",
+        0.5358087420463562
+      ],
+      [
+        "currency",
+        0.5357057452201843
+      ],
+      [
+        "citibank",
+        0.5344417095184326
+      ],
+      [
+        "institutions",
+        0.5279510617256165
+      ],
+      [
+        "hsbc",
+        0.5271169543266296
+      ],
+      [
+        "fund",
+        0.5201307535171509
+      ],
+      [
+        "deposit",
+        0.5200782418251038
+      ],
+      [
+        "accounts",
+        0.5185030102729797
+      ],
+      [
+        "exchange",
+        0.5170336961746216
+      ],
+      [
+        "money",
+        0.5124762058258057
+      ],
+      [
+        "citigroup",
+        0.512180745601654
+      ],
+      [
+        "loan",
+        0.5068480372428894
+      ],
+      [
+        "interest",
+        0.5052227973937988
+      ],
+      [
+        "savings",
+        0.5045499205589294
+      ],
+      [
+        "fed",
+        0.5032116770744324
+      ],
+      [
+        "banker",
+        0.5027673840522766
+      ],
+      [
+        "assets",
+        0.5017116069793701
+      ]
+    ],
+    "top10_annotated": [
+      {
+        "word": "banks",
+        "score": 0.7625691294670105,
+        "sense": "financial"
+      },
+      {
+        "word": "banking",
+        "score": 0.6818838119506836,
+        "sense": "financial"
+      },
+      {
+        "word": "central",
+        "score": 0.6283639073371887,
+        "sense": "other"
+      },
+      {
+        "word": "financial",
+        "score": 0.6166563034057617,
+        "sense": "financial"
+      },
+      {
+        "word": "credit",
+        "score": 0.6049751043319702,
+        "sense": "financial"
+      },
+      {
+        "word": "lending",
+        "score": 0.5980608463287354,
+        "sense": "financial"
+      },
+      {
+        "word": "monetary",
+        "score": 0.5963003039360046,
+        "sense": "other"
+      },
+      {
+        "word": "bankers",
+        "score": 0.5913101434707642,
+        "sense": "other"
+      },
+      {
+        "word": "loans",
+        "score": 0.5802940130233765,
+        "sense": "other"
+      },
+      {
+        "word": "investment",
+        "score": 0.574020266532898,
+        "sense": "other"
+      }
+    ],
+    "top30_annotated": [
+      {
+        "word": "banks",
+        "score": 0.7625691294670105,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "banking",
+        "score": 0.6818838119506836,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "central",
+        "score": 0.6283639073371887,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "financial",
+        "score": 0.6166563034057617,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "credit",
+        "score": 0.6049751043319702,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "lending",
+        "score": 0.5980608463287354,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "monetary",
+        "score": 0.5963003039360046,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "bankers",
+        "score": 0.5913101434707642,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "loans",
+        "score": 0.5802940130233765,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "investment",
+        "score": 0.574020266532898,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "securities",
+        "score": 0.5509618520736694,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "funds",
+        "score": 0.5430683493614197,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "finance",
+        "score": 0.5417402386665344,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "lender",
+        "score": 0.5358087420463562,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "currency",
+        "score": 0.5357057452201843,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "citibank",
+        "score": 0.5344417095184326,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "institutions",
+        "score": 0.5279510617256165,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "hsbc",
+        "score": 0.5271169543266296,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fund",
+        "score": 0.5201307535171509,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "deposit",
+        "score": 0.5200782418251038,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "accounts",
+        "score": 0.5185030102729797,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "exchange",
+        "score": 0.5170336961746216,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "money",
+        "score": 0.5124762058258057,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "citigroup",
+        "score": 0.512180745601654,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "loan",
+        "score": 0.5068480372428894,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "interest",
+        "score": 0.5052227973937988,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "savings",
+        "score": 0.5045499205589294,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fed",
+        "score": 0.5032116770744324,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "banker",
+        "score": 0.5027673840522766,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "assets",
+        "score": 0.5017116069793701,
+        "sense": "TBD_manual"
+      }
+    ],
+    "context_examples": [
+      {
+        "doc_idx": 233,
+        "snippet": "apturing the robbers just eliminate the bank workers see who was at the bankfrom all"
+      },
+      {
+        "doc_idx": 234,
+        "snippet": "therebr br other peeves br br  how many bank robbers would bother to come to the doo"
+      },
+      {
+        "doc_idx": 234,
+        "snippet": "ficer that they were inside robbing the bank and hed better keep awayor else br br  "
+      },
+      {
+        "doc_idx": 234,
+        "snippet": "razier denzel washington comes into the bank to verify there are no corpses yet how "
+      },
+      {
+        "doc_idx": 234,
+        "snippet": "erify there are no corpses yet how many bank robbers without a gun would have led a "
+      }
+    ],
+    "data_limit": "top-10 shows primarily one sense cluster"
+  },
+  "plant": {
+    "in_imdb_subset_count": 5,
+    "top10": [
+      [
+        "plants",
+        0.8802077174186707
+      ],
+      [
+        "factory",
+        0.6054626703262329
+      ],
+      [
+        "facility",
+        0.556488573551178
+      ],
+      [
+        "produce",
+        0.5439175367355347
+      ],
+      [
+        "production",
+        0.5205835103988647
+      ],
+      [
+        "chemical",
+        0.5185851454734802
+      ],
+      [
+        "producing",
+        0.5161451101303101
+      ],
+      [
+        "waste",
+        0.5101147890090942
+      ],
+      [
+        "factories",
+        0.506610631942749
+      ],
+      [
+        "flowering",
+        0.5009768009185791
+      ]
+    ],
+    "top30": [
+      [
+        "plants",
+        0.8802077174186707
+      ],
+      [
+        "factory",
+        0.6054626703262329
+      ],
+      [
+        "facility",
+        0.556488573551178
+      ],
+      [
+        "produce",
+        0.5439175367355347
+      ],
+      [
+        "production",
+        0.5205835103988647
+      ],
+      [
+        "chemical",
+        0.5185851454734802
+      ],
+      [
+        "producing",
+        0.5161451101303101
+      ],
+      [
+        "waste",
+        0.5101147890090942
+      ],
+      [
+        "factories",
+        0.506610631942749
+      ],
+      [
+        "flowering",
+        0.5009768009185791
+      ],
+      [
+        "produces",
+        0.5006617903709412
+      ],
+      [
+        "manufacturing",
+        0.49313172698020935
+      ],
+      [
+        "nuclear",
+        0.4753039479255676
+      ],
+      [
+        "species",
+        0.47491955757141113
+      ],
+      [
+        "fuel",
+        0.47406479716300964
+      ],
+      [
+        "reactor",
+        0.47328415513038635
+      ],
+      [
+        "processing",
+        0.4660899043083191
+      ],
+      [
+        "fertilizer",
+        0.465857595205307
+      ],
+      [
+        "refinery",
+        0.46384716033935547
+      ],
+      [
+        "build",
+        0.4590853750705719
+      ],
+      [
+        "coal",
+        0.4574466347694397
+      ],
+      [
+        "workers",
+        0.4563516080379486
+      ],
+      [
+        "parts",
+        0.4551865756511688
+      ],
+      [
+        "petrochemical",
+        0.4517289102077484
+      ],
+      [
+        "manufacture",
+        0.45088526606559753
+      ],
+      [
+        "feed",
+        0.4502032995223999
+      ],
+      [
+        "facilities",
+        0.4496041536331177
+      ],
+      [
+        "gm",
+        0.4489290118217468
+      ],
+      [
+        "hydroelectric",
+        0.4486355483531952
+      ],
+      [
+        "industrial",
+        0.446733683347702
+      ]
+    ],
+    "top10_annotated": [
+      {
+        "word": "plants",
+        "score": 0.8802077174186707,
+        "sense": "botanical"
+      },
+      {
+        "word": "factory",
+        "score": 0.6054626703262329,
+        "sense": "factory"
+      },
+      {
+        "word": "facility",
+        "score": 0.556488573551178,
+        "sense": "factory"
+      },
+      {
+        "word": "produce",
+        "score": 0.5439175367355347,
+        "sense": "other"
+      },
+      {
+        "word": "production",
+        "score": 0.5205835103988647,
+        "sense": "other"
+      },
+      {
+        "word": "chemical",
+        "score": 0.5185851454734802,
+        "sense": "other"
+      },
+      {
+        "word": "producing",
+        "score": 0.5161451101303101,
+        "sense": "other"
+      },
+      {
+        "word": "waste",
+        "score": 0.5101147890090942,
+        "sense": "other"
+      },
+      {
+        "word": "factories",
+        "score": 0.506610631942749,
+        "sense": "other"
+      },
+      {
+        "word": "flowering",
+        "score": 0.5009768009185791,
+        "sense": "botanical"
+      }
+    ],
+    "top30_annotated": [
+      {
+        "word": "plants",
+        "score": 0.8802077174186707,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "factory",
+        "score": 0.6054626703262329,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "facility",
+        "score": 0.556488573551178,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "produce",
+        "score": 0.5439175367355347,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "production",
+        "score": 0.5205835103988647,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "chemical",
+        "score": 0.5185851454734802,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "producing",
+        "score": 0.5161451101303101,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "waste",
+        "score": 0.5101147890090942,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "factories",
+        "score": 0.506610631942749,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "flowering",
+        "score": 0.5009768009185791,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "produces",
+        "score": 0.5006617903709412,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "manufacturing",
+        "score": 0.49313172698020935,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "nuclear",
+        "score": 0.4753039479255676,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "species",
+        "score": 0.47491955757141113,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fuel",
+        "score": 0.47406479716300964,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "reactor",
+        "score": 0.47328415513038635,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "processing",
+        "score": 0.4660899043083191,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fertilizer",
+        "score": 0.465857595205307,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "refinery",
+        "score": 0.46384716033935547,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "build",
+        "score": 0.4590853750705719,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "coal",
+        "score": 0.4574466347694397,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "workers",
+        "score": 0.4563516080379486,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "parts",
+        "score": 0.4551865756511688,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "petrochemical",
+        "score": 0.4517289102077484,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "manufacture",
+        "score": 0.45088526606559753,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "feed",
+        "score": 0.4502032995223999,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "facilities",
+        "score": 0.4496041536331177,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "gm",
+        "score": 0.4489290118217468,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "hydroelectric",
+        "score": 0.4486355483531952,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "industrial",
+        "score": 0.446733683347702,
+        "sense": "TBD_manual"
+      }
+    ],
+    "context_examples": [
+      {
+        "doc_idx": 101,
+        "snippet": "this a 1 was the nice scenery human and plant <END>"
+      },
+      {
+        "doc_idx": 212,
+        "snippet": "and guess for what movie is obviously a plant while the movie is nicely shot its by n"
+      },
+      {
+        "doc_idx": 268,
+        "snippet": "rst film the scene with him and the pot plant was one of my favorites from the second"
+      },
+      {
+        "doc_idx": 824,
+        "snippet": "s last night now i know that filmmakers plant positive reviews because there is no wa"
+      },
+      {
+        "doc_idx": 1110,
+        "snippet": "out of high school to take a job in the plant references are made to the fact that no"
+      }
+    ],
+    "data_limit": null
+  },
+  "tie": {
+    "in_imdb_subset_count": 6,
+    "top10": [
+      [
+        "tied",
+        0.7652921080589294
+      ],
+      [
+        "tying",
+        0.6439815759658813
+      ],
+      [
+        "3-3",
+        0.6123630404472351
+      ],
+      [
+        "2-2",
+        0.5949523448944092
+      ],
+      [
+        "win",
+        0.5888978838920593
+      ],
+      [
+        "1-1",
+        0.5877988934516907
+      ],
+      [
+        "3-2",
+        0.5867014527320862
+      ],
+      [
+        "match",
+        0.5677422881126404
+      ],
+      [
+        "draw",
+        0.5639833211898804
+      ],
+      [
+        "2-1",
+        0.5626458525657654
+      ]
+    ],
+    "top30": [
+      [
+        "tied",
+        0.7652921080589294
+      ],
+      [
+        "tying",
+        0.6439815759658813
+      ],
+      [
+        "3-3",
+        0.6123630404472351
+      ],
+      [
+        "2-2",
+        0.5949523448944092
+      ],
+      [
+        "win",
+        0.5888978838920593
+      ],
+      [
+        "1-1",
+        0.5877988934516907
+      ],
+      [
+        "3-2",
+        0.5867014527320862
+      ],
+      [
+        "match",
+        0.5677422881126404
+      ],
+      [
+        "draw",
+        0.5639833211898804
+      ],
+      [
+        "2-1",
+        0.5626458525657654
+      ],
+      [
+        "straight",
+        0.5624333024024963
+      ],
+      [
+        "4-3",
+        0.5481873750686646
+      ],
+      [
+        "victory",
+        0.5470800995826721
+      ],
+      [
+        "break",
+        0.5466495752334595
+      ],
+      [
+        "round",
+        0.543545663356781
+      ],
+      [
+        "2-0",
+        0.5412263870239258
+      ],
+      [
+        "4-4",
+        0.5388858914375305
+      ],
+      [
+        "scoreless",
+        0.5388814210891724
+      ],
+      [
+        "game",
+        0.5361184477806091
+      ],
+      [
+        "3-1",
+        0.5358707308769226
+      ],
+      [
+        "4-2",
+        0.5353302955627441
+      ],
+      [
+        "playoff",
+        0.5341784358024597
+      ],
+      [
+        "final",
+        0.5311855673789978
+      ],
+      [
+        "clinched",
+        0.5250540375709534
+      ],
+      [
+        "matching",
+        0.5246500968933105
+      ],
+      [
+        "1-0",
+        0.5228513479232788
+      ],
+      [
+        "lead",
+        0.5213965773582458
+      ],
+      [
+        "beat",
+        0.520436704158783
+      ],
+      [
+        "pair",
+        0.5203641653060913
+      ],
+      [
+        "third",
+        0.5126384496688843
+      ]
+    ],
+    "top10_annotated": [
+      {
+        "word": "tied",
+        "score": 0.7652921080589294,
+        "sense": "draw_equal"
+      },
+      {
+        "word": "tying",
+        "score": 0.6439815759658813,
+        "sense": "other"
+      },
+      {
+        "word": "3-3",
+        "score": 0.6123630404472351,
+        "sense": "other"
+      },
+      {
+        "word": "2-2",
+        "score": 0.5949523448944092,
+        "sense": "other"
+      },
+      {
+        "word": "win",
+        "score": 0.5888978838920593,
+        "sense": "other"
+      },
+      {
+        "word": "1-1",
+        "score": 0.5877988934516907,
+        "sense": "other"
+      },
+      {
+        "word": "3-2",
+        "score": 0.5867014527320862,
+        "sense": "other"
+      },
+      {
+        "word": "match",
+        "score": 0.5677422881126404,
+        "sense": "other"
+      },
+      {
+        "word": "draw",
+        "score": 0.5639833211898804,
+        "sense": "draw_equal"
+      },
+      {
+        "word": "2-1",
+        "score": 0.5626458525657654,
+        "sense": "other"
+      }
+    ],
+    "top30_annotated": [
+      {
+        "word": "tied",
+        "score": 0.7652921080589294,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "tying",
+        "score": 0.6439815759658813,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "3-3",
+        "score": 0.6123630404472351,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "2-2",
+        "score": 0.5949523448944092,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "win",
+        "score": 0.5888978838920593,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "1-1",
+        "score": 0.5877988934516907,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "3-2",
+        "score": 0.5867014527320862,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "match",
+        "score": 0.5677422881126404,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "draw",
+        "score": 0.5639833211898804,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "2-1",
+        "score": 0.5626458525657654,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "straight",
+        "score": 0.5624333024024963,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "4-3",
+        "score": 0.5481873750686646,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "victory",
+        "score": 0.5470800995826721,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "break",
+        "score": 0.5466495752334595,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "round",
+        "score": 0.543545663356781,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "2-0",
+        "score": 0.5412263870239258,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "4-4",
+        "score": 0.5388858914375305,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "scoreless",
+        "score": 0.5388814210891724,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "game",
+        "score": 0.5361184477806091,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "3-1",
+        "score": 0.5358707308769226,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "4-2",
+        "score": 0.5353302955627441,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "playoff",
+        "score": 0.5341784358024597,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "final",
+        "score": 0.5311855673789978,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "clinched",
+        "score": 0.5250540375709534,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "matching",
+        "score": 0.5246500968933105,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "1-0",
+        "score": 0.5228513479232788,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "lead",
+        "score": 0.5213965773582458,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "beat",
+        "score": 0.520436704158783,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "pair",
+        "score": 0.5203641653060913,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "third",
+        "score": 0.5126384496688843,
+        "sense": "TBD_manual"
+      }
+    ],
+    "context_examples": [
+      {
+        "doc_idx": 679,
+        "snippet": "s is about a detective who is trying to tie together similar murders that have been"
+      },
+      {
+        "doc_idx": 1059,
+        "snippet": "and disturbing actually i think i would tie this with american history x as equally"
+      },
+      {
+        "doc_idx": 1067,
+        "snippet": "tective wondering around town trying to tie alicia to the lone shooter if they ever"
+      },
+      {
+        "doc_idx": 1563,
+        "snippet": "love of fly fishing and each other will tie them together forever it is the relatio"
+      },
+      {
+        "doc_idx": 1745,
+        "snippet": "karmabr br the most humorous scene is a tie between the murder of her husband and h"
+      }
+    ],
+    "data_limit": "top-10 shows primarily one sense cluster"
+  },
+  "bark": {
+    "in_imdb_subset_count": 1,
+    "top10": [
+      [
+        "twigs",
+        0.6458560824394226
+      ],
+      [
+        "mottled",
+        0.5284397006034851
+      ],
+      [
+        "birch",
+        0.5247510671615601
+      ],
+      [
+        "mulch",
+        0.5244165658950806
+      ],
+      [
+        "sawdust",
+        0.5125024318695068
+      ],
+      [
+        "trees",
+        0.5100499391555786
+      ],
+      [
+        "scaly",
+        0.5024779438972473
+      ],
+      [
+        "tree",
+        0.4941451847553253
+      ],
+      [
+        "cinchona",
+        0.49377110600471497
+      ],
+      [
+        "twig",
+        0.49123331904411316
+      ]
+    ],
+    "top30": [
+      [
+        "twigs",
+        0.6458560824394226
+      ],
+      [
+        "mottled",
+        0.5284397006034851
+      ],
+      [
+        "birch",
+        0.5247510671615601
+      ],
+      [
+        "mulch",
+        0.5244165658950806
+      ],
+      [
+        "sawdust",
+        0.5125024318695068
+      ],
+      [
+        "trees",
+        0.5100499391555786
+      ],
+      [
+        "scaly",
+        0.5024779438972473
+      ],
+      [
+        "tree",
+        0.4941451847553253
+      ],
+      [
+        "cinchona",
+        0.49377110600471497
+      ],
+      [
+        "twig",
+        0.49123331904411316
+      ],
+      [
+        "trunks",
+        0.4864945411682129
+      ],
+      [
+        "leaf",
+        0.4853825569152832
+      ],
+      [
+        "willow",
+        0.48285168409347534
+      ],
+      [
+        "fibrous",
+        0.4802798628807068
+      ],
+      [
+        "foliage",
+        0.4790540635585785
+      ],
+      [
+        "hairs",
+        0.4754137098789215
+      ],
+      [
+        "fissured",
+        0.47374504804611206
+      ],
+      [
+        "beech",
+        0.47302091121673584
+      ],
+      [
+        "papery",
+        0.46958476305007935
+      ],
+      [
+        "spruce",
+        0.4695068895816803
+      ],
+      [
+        "pine",
+        0.46819061040878296
+      ],
+      [
+        "reddish",
+        0.4665917158126831
+      ],
+      [
+        "exfoliating",
+        0.4651927053928375
+      ],
+      [
+        "insects",
+        0.46248266100883484
+      ],
+      [
+        "wood",
+        0.46112602949142456
+      ],
+      [
+        "leathery",
+        0.4585873484611511
+      ],
+      [
+        "beetles",
+        0.4576309323310852
+      ],
+      [
+        "gum",
+        0.45557090640068054
+      ],
+      [
+        "peeling",
+        0.45523571968078613
+      ],
+      [
+        "hemlock",
+        0.4524160325527191
+      ]
+    ],
+    "top10_annotated": [
+      {
+        "word": "twigs",
+        "score": 0.6458560824394226,
+        "sense": "other"
+      },
+      {
+        "word": "mottled",
+        "score": 0.5284397006034851,
+        "sense": "other"
+      },
+      {
+        "word": "birch",
+        "score": 0.5247510671615601,
+        "sense": "other"
+      },
+      {
+        "word": "mulch",
+        "score": 0.5244165658950806,
+        "sense": "other"
+      },
+      {
+        "word": "sawdust",
+        "score": 0.5125024318695068,
+        "sense": "other"
+      },
+      {
+        "word": "trees",
+        "score": 0.5100499391555786,
+        "sense": "tree"
+      },
+      {
+        "word": "scaly",
+        "score": 0.5024779438972473,
+        "sense": "other"
+      },
+      {
+        "word": "tree",
+        "score": 0.4941451847553253,
+        "sense": "tree"
+      },
+      {
+        "word": "cinchona",
+        "score": 0.49377110600471497,
+        "sense": "other"
+      },
+      {
+        "word": "twig",
+        "score": 0.49123331904411316,
+        "sense": "other"
+      }
+    ],
+    "top30_annotated": [
+      {
+        "word": "twigs",
+        "score": 0.6458560824394226,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "mottled",
+        "score": 0.5284397006034851,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "birch",
+        "score": 0.5247510671615601,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "mulch",
+        "score": 0.5244165658950806,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "sawdust",
+        "score": 0.5125024318695068,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "trees",
+        "score": 0.5100499391555786,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "scaly",
+        "score": 0.5024779438972473,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "tree",
+        "score": 0.4941451847553253,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "cinchona",
+        "score": 0.49377110600471497,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "twig",
+        "score": 0.49123331904411316,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "trunks",
+        "score": 0.4864945411682129,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "leaf",
+        "score": 0.4853825569152832,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "willow",
+        "score": 0.48285168409347534,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fibrous",
+        "score": 0.4802798628807068,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "foliage",
+        "score": 0.4790540635585785,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "hairs",
+        "score": 0.4754137098789215,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "fissured",
+        "score": 0.47374504804611206,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "beech",
+        "score": 0.47302091121673584,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "papery",
+        "score": 0.46958476305007935,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "spruce",
+        "score": 0.4695068895816803,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "pine",
+        "score": 0.46819061040878296,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "reddish",
+        "score": 0.4665917158126831,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "exfoliating",
+        "score": 0.4651927053928375,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "insects",
+        "score": 0.46248266100883484,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "wood",
+        "score": 0.46112602949142456,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "leathery",
+        "score": 0.4585873484611511,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "beetles",
+        "score": 0.4576309323310852,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "gum",
+        "score": 0.45557090640068054,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "peeling",
+        "score": 0.45523571968078613,
+        "sense": "TBD_manual"
+      },
+      {
+        "word": "hemlock",
+        "score": 0.4524160325527191,
+        "sense": "TBD_manual"
+      }
+    ],
+    "context_examples": [
+      {
+        "doc_idx": 562,
+        "snippet": "ettable performance from manchild peter bark and the enjoyably sleazy giallo strip n"
+      }
+    ],
+    "data_limit": "very few occurrences; sense diversity may be limited; top-10 shows primarily one sense cluster"
+  }
+}

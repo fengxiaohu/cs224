@@ -1,0 +1,8 @@
+{
+  "num_samples_vs_text": "NUM_SAMPLES=150 but text says 25,000 train reviews",
+  "corpus_size_print": "prints len(imdb_corpus[0]) not document count",
+  "glove_sample_size": "text says 40,000 but code loads all ~400,000 vectors",
+  "svd_random_state": "TruncatedSVD without random_state depends on global numpy seed",
+  "dense_co_occurrence": "uses np.zeros dense matrix; scales poorly",
+  "empty_string_tokens": "preprocessing creates empty-string tokens from punctuation"
+}

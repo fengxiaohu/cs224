@@ -1,0 +1,50 @@
+{
+  "corpus": [
+    [
+      "<START>",
+      "the",
+      "a",
+      "the",
+      "a",
+      "the",
+      "<END>"
+    ],
+    [
+      "<START>",
+      "the",
+      "a",
+      "the",
+      "<END>"
+    ],
+    [
+      "<START>",
+      "zebra",
+      "quasar",
+      "<END>"
+    ]
+  ],
+  "examples": [
+    {
+      "label": "high-count function words",
+      "word_i": "the",
+      "word_j": "a",
+      "count_ij": 6.0,
+      "row_marginal_i": 10.0,
+      "col_marginal_j": 6.0,
+      "total_mass": 26.0,
+      "pmi": 0.9555114450274363,
+      "ppmi": 0.9555114450274363
+    },
+    {
+      "label": "once-only pair",
+      "word_i": "zebra",
+      "word_j": "quasar",
+      "count_ij": 1.0,
+      "row_marginal_i": 2.0,
+      "col_marginal_j": 2.0,
+      "total_mass": 26.0,
+      "pmi": 1.8718021769015913,
+      "ppmi": 1.8718021769015913
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "seed": 0,
+  "packages": {
+    "python": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+    "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "numpy": "2.5.2",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0",
+    "gensim": "4.4.0",
+    "datasets": "2.18.0"
+  },
+  "module": "B",
+  "k_max": 100,
+  "k_values": [
+    2,
+    10,
+    25,
+    50,
+    100
+  ],
+  "pip_subset_size": 500,
+  "zero_vectors_dropped_from_pip": 0,
+  "eval_vocab_size": 3934,
+  "data_hashes": {
+    "raw_text_sha256": "6135462eec82b9031fc6ebeca84d304ab6b7b30c4fbf534610c075abcd0b2bdf",
+    "preprocessed_token_sha256": "8c6305a48063c82dbe8fa6a991b853374db4d7d85a5e828a2dfa10e52903fb0f"
+  }
+}

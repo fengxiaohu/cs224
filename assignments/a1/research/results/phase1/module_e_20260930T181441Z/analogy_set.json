@@ -1,0 +1,217 @@
+{
+  "description": "Fixed analogy evaluation set for Module E. Train pairs build offsets; test pairs are scored. Failure cases are reported separately and excluded from accuracy denominator.",
+  "relations": [
+    {
+      "name": "country_capital",
+      "type": "country-capital",
+      "train": [
+        {
+          "a": "france",
+          "b": "paris"
+        },
+        {
+          "a": "japan",
+          "b": "tokyo"
+        },
+        {
+          "a": "germany",
+          "b": "berlin"
+        },
+        {
+          "a": "italy",
+          "b": "rome"
+        }
+      ],
+      "test": [
+        {
+          "a": "england",
+          "b": "london",
+          "c": "china",
+          "gold": "beijing"
+        },
+        {
+          "a": "spain",
+          "b": "madrid",
+          "c": "russia",
+          "gold": "moscow"
+        },
+        {
+          "a": "canada",
+          "b": "ottawa",
+          "c": "egypt",
+          "gold": "cairo"
+        },
+        {
+          "a": "brazil",
+          "b": "brasilia",
+          "c": "india",
+          "gold": "delhi"
+        }
+      ]
+    },
+    {
+      "name": "singular_plural",
+      "type": "singular-plural",
+      "train": [
+        {
+          "a": "cat",
+          "b": "cats"
+        },
+        {
+          "a": "dog",
+          "b": "dogs"
+        },
+        {
+          "a": "book",
+          "b": "books"
+        },
+        {
+          "a": "car",
+          "b": "cars"
+        }
+      ],
+      "test": [
+        {
+          "a": "bird",
+          "b": "birds",
+          "c": "tree",
+          "gold": "trees"
+        },
+        {
+          "a": "house",
+          "b": "houses",
+          "c": "child",
+          "gold": "children"
+        },
+        {
+          "a": "mouse",
+          "b": "mice",
+          "c": "foot",
+          "gold": "feet"
+        },
+        {
+          "a": "man",
+          "b": "men",
+          "c": "woman",
+          "gold": "women"
+        }
+      ]
+    },
+    {
+      "name": "adjective_comparative",
+      "type": "adjective-comparative",
+      "train": [
+        {
+          "a": "fast",
+          "b": "faster"
+        },
+        {
+          "a": "slow",
+          "b": "slower"
+        },
+        {
+          "a": "big",
+          "b": "bigger"
+        },
+        {
+          "a": "small",
+          "b": "smaller"
+        }
+      ],
+      "test": [
+        {
+          "a": "high",
+          "b": "higher",
+          "c": "low",
+          "gold": "lower"
+        },
+        {
+          "a": "long",
+          "b": "longer",
+          "c": "short",
+          "gold": "shorter"
+        },
+        {
+          "a": "young",
+          "b": "younger",
+          "c": "old",
+          "gold": "older"
+        },
+        {
+          "a": "strong",
+          "b": "stronger",
+          "c": "weak",
+          "gold": "weaker"
+        }
+      ]
+    },
+    {
+      "name": "family",
+      "type": "family",
+      "train": [
+        {
+          "a": "man",
+          "b": "brother"
+        },
+        {
+          "a": "woman",
+          "b": "sister"
+        },
+        {
+          "a": "king",
+          "b": "prince"
+        },
+        {
+          "a": "queen",
+          "b": "princess"
+        }
+      ],
+      "test": [
+        {
+          "a": "man",
+          "b": "grandfather",
+          "c": "woman",
+          "gold": "grandmother"
+        },
+        {
+          "a": "man",
+          "b": "father",
+          "c": "woman",
+          "gold": "mother"
+        },
+        {
+          "a": "boy",
+          "b": "son",
+          "c": "girl",
+          "gold": "daughter"
+        },
+        {
+          "a": "uncle",
+          "b": "nephew",
+          "c": "aunt",
+          "gold": "niece"
+        }
+      ]
+    }
+  ],
+  "failure_cases": [
+    {
+      "name": "hand_glove_foot",
+      "description": "Assignment known failure: hand:glove :: foot:sock",
+      "a": "hand",
+      "b": "glove",
+      "c": "foot",
+      "gold": "sock",
+      "offset_from": "family"
+    },
+    {
+      "name": "dog_bark_cat_meow",
+      "description": "Polysemy: bark pulls toward tree bark",
+      "a": "dog",
+      "b": "bark",
+      "c": "cat",
+      "gold": "meow",
+      "offset_from": "singular_plural"
+    }
+  ]
+}

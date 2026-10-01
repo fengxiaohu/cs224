@@ -1,0 +1,18 @@
+{
+  "cosine_neighbors_unchanged": {
+    "movie": true,
+    "book": true,
+    "mysterious": true,
+    "story": true,
+    "fascinating": true,
+    "good": true,
+    "interesting": true,
+    "large": true,
+    "massive": true,
+    "huge": true
+  },
+  "pip_unchanged": true,
+  "pip_before": 549.5650542792557,
+  "pip_after": 549.565054279256,
+  "tolerance": 1e-10
+}

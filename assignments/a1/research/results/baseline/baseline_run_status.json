@@ -1,0 +1,7 @@
+{
+  "returncode": 0,
+  "stdout_path": "/Users/xiaohufeng/Documents/cs224/assignments/a1/research/results/baseline/baseline_stdout.txt",
+  "executed_notebook": "/Users/xiaohufeng/Documents/cs224/assignments/a1/research/results/baseline/exploring_word_vectors_executed.ipynb",
+  "success": true,
+  "mismatches_path": "/Users/xiaohufeng/Documents/cs224/assignments/a1/research/results/baseline/notebook_mismatches.json"
+}
