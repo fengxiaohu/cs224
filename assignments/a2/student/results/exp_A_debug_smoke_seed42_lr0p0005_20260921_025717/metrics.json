@@ -1,0 +1,70 @@
+{
+  "best_dev_uas": 0.7155711072231942,
+  "best_dev_uas_percent": 71.55711072231942,
+  "best_epoch": 10,
+  "checkpoint": "/Users/xiaohufeng/Documents/cs224/assignments/a2/student/results/exp_A_debug_smoke_seed42_lr0p0005_20260921_025717/model.weights",
+  "elapsed_seconds": 33.01039385795593,
+  "epoch_metrics": [
+    {
+      "dev_uas": 0.530367408147963,
+      "dev_uas_percent": 53.0367408147963,
+      "epoch": 1,
+      "train_loss": 0.6863224195937315
+    },
+    {
+      "dev_uas": 0.5922685995167875,
+      "dev_uas_percent": 59.22685995167875,
+      "epoch": 2,
+      "train_loss": 0.3552555696417888
+    },
+    {
+      "dev_uas": 0.6118470382404398,
+      "dev_uas_percent": 61.184703824043986,
+      "epoch": 3,
+      "train_loss": 0.2918559756750862
+    },
+    {
+      "dev_uas": 0.6470882279430142,
+      "dev_uas_percent": 64.70882279430143,
+      "epoch": 4,
+      "train_loss": 0.2539330118646224
+    },
+    {
+      "dev_uas": 0.6742481046405066,
+      "dev_uas_percent": 67.42481046405065,
+      "epoch": 5,
+      "train_loss": 0.2273363700757424
+    },
+    {
+      "dev_uas": 0.6824960426560026,
+      "dev_uas_percent": 68.24960426560025,
+      "epoch": 6,
+      "train_loss": 0.20370172802358866
+    },
+    {
+      "dev_uas": 0.6935766058485379,
+      "dev_uas_percent": 69.35766058485379,
+      "epoch": 7,
+      "train_loss": 0.18586118891835213
+    },
+    {
+      "dev_uas": 0.7051570440723153,
+      "dev_uas_percent": 70.51570440723152,
+      "epoch": 8,
+      "train_loss": 0.17199014592915773
+    },
+    {
+      "dev_uas": 0.715071232191952,
+      "dev_uas_percent": 71.50712321919521,
+      "epoch": 9,
+      "train_loss": 0.15871070822079977
+    },
+    {
+      "dev_uas": 0.7155711072231942,
+      "dev_uas_percent": 71.55711072231942,
+      "epoch": 10,
+      "train_loss": 0.14773729583248496
+    }
+  ],
+  "final_train_loss": 0.14773729583248496
+}

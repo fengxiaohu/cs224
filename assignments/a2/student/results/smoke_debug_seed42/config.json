@@ -1,0 +1,31 @@
+{
+  "batch_size": 1024,
+  "device": "cpu",
+  "dropout": 0.5,
+  "finished_at": "2026-09-20T18:56:53.787955Z",
+  "git": {
+    "branch": "a2-auto-research",
+    "commit": "d1183ef6b92423a260cff9c0a1bbdb0cd5bc76cc",
+    "diff_stat": " .gitignore                             |   6 +-\n assignments/a2/a2_tex/main.aux         |  74 +++---\n assignments/a2/a2_tex/main.fdb_latexmk |  17 +-\n assignments/a2/a2_tex/main.fls         |  12 +-\n assignments/a2/a2_tex/main.log         |  89 ++++----\n assignments/a2/a2_tex/main.synctex.gz  | Bin 134642 -> 0 bytes\n assignments/a2/student/run.py          | 406 ++++++++++++++++++++++++++++++---\n 7 files changed, 479 insertions(+), 125 deletions(-)\n",
+    "status_porcelain": " M .gitignore\n M assignments/a2/a2_tex/main.aux\n M assignments/a2/a2_tex/main.fdb_latexmk\n M assignments/a2/a2_tex/main.fls\n M assignments/a2/a2_tex/main.log\n D assignments/a2/a2_tex/main.synctex.gz\n M assignments/a2/student/run.py\n?? assignments/a2/student/archive/\n?? assignments/a2/student/experiment_controller.py\n?? assignments/a2/student/program.md\n?? assignments/a2/student/test_experiment_controller.py\n"
+  },
+  "hidden_size": 200,
+  "lr": 0.0005,
+  "mode": "debug",
+  "n_epochs": 10,
+  "numpy_version": "2.5.2",
+  "output_dir": "/Users/xiaohufeng/Documents/cs224/assignments/a2/student/results/smoke_debug_seed42",
+  "python_version": "3.13.15 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 17:19:34) [Clang 20.1.8 ]",
+  "run_id": "smoke_debug_seed42",
+  "seed": 42,
+  "skip_test": true,
+  "source_hashes": {
+    "parser_model.py": "463ded79158563319ab7639e02076556cdadab5b4d74737d78e99ee83556ba9f",
+    "parser_transitions.py": "e448057b03515c2fd45fa19569a388f69277aae52ccb3230f0d77ff6fea9b0d2",
+    "run.py": "fe2a30e02188580bbd63a0ec44734c64e36b3fb5dc4eec34681869bf924a6b6d",
+    "utils/general_utils.py": "54883b882d2f594bd913f6147bc73ee9f3d7d9463b6da494f24d43b00292d19f",
+    "utils/parser_utils.py": "6c77ae39f2123e525b56cff5ef70fc5c90975b01535145818d594be5d9bc3dbe"
+  },
+  "started_at": "2026-09-20T18:56:25.465467Z",
+  "torch_version": "2.14.0"
+}

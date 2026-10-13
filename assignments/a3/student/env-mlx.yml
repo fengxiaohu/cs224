@@ -1,0 +1,13 @@
+name: cs224n-mlx
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - mlx>=0.21
+      - numpy>=1.24
+      - sentencepiece>=0.1.99
+      - sacrebleu>=2.0
+      - tensorboard>=2.12
+      - tensorboardX>=2.6
