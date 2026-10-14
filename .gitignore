@@ -19,3 +19,22 @@ _metadata/download.log
 
 # macOS noise
 .DS_Store
+
+# Codex study notes for A4
+/MISSION.md
+/NOTES.md
+/RESOURCES.md
+/assets/
+/lessons/
+/reference/
+
+# LaTeX build products
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.out
+*.synctex.gz
+_minted*
